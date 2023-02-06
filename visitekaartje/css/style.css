@@ -1,7 +1,10 @@
 
 :root {
-	--background: hsl(0, 0%, 0%);
+	--background: hsl(0, 0%, 27%);
 	--primary: hsl(0, 0%, 100%);
+
+	--rotateX: 0deg;
+	--rotateY: 0deg;
 }
 
 
@@ -9,4 +12,81 @@ html, * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	border: 1px solid red;
+}
+
+body {
+	background: var(--background);
+}
+
+
+article {
+	max-width: 20rem;
+	aspect-ratio: 23155/35907;
+	margin: auto;
+	position: relative;
+	perspective: 600px;
+}
+
+.clickArea {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: transparent;
+	z-index: 100;
+	/* pointer-events: none; */
+}
+
+.clicked {
+	transform-style: preserve-3d;
+	transform: rotateY(180deg) translateZ(1rem);
+	/* transition: 1s all; */
+}
+
+article > section {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	transform: rotateY(var(--rotateY)) rotateX(var(--rotateX));
+	/* transition: 1s all; */
+}
+
+article > section > section {
+	transform-style: preserve-3d;
+	background: var(--primary);
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+article > section > section:first-of-type {
+	rotate: y 180deg;
+    transform: translateZ(1rem);
+}
+
+article > section > section::before {
+	content: "";
+	position: absolute;
+	width: 1rem;
+	height: 100%;
+	background: green;
+
+	right: -1rem;
+
+	rotate: y 90deg;
+	transform-origin: left center;
+}
+
+article > section > section::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1rem;
+	background: blue;
+
+	bottom: -1rem;
+	rotate: x -90deg;
+
+	transform-origin: top;
 }
