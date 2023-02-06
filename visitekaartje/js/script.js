@@ -14,15 +14,17 @@ const canvasCharacterRive = new rive.Rive({
 
 
 const clickArea = document.querySelector(".clickArea");
-const card = document.querySelector(".sasjaCard > section")
+const cardContent = document.querySelector(".sasjaCardContent");
 
 clickArea.addEventListener("click", () => {
-    console.log("clicked")
-    card.classList.toggle("clicked");
+  console.log("clicked")
+  cardContent.classList.toggle("clicked");
 });
 
 
 // rotate the card in 3d based on cursor position
+
+const card = document.querySelector(".sasjaCard > section")
 
 const root = document.documentElement;
 
