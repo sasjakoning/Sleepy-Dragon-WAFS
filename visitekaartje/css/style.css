@@ -2,6 +2,7 @@
 :root {
 	--background: hsl(0, 0%, 27%);
 	--primary: hsl(0, 0%, 100%);
+	--text: hsl(0, 0%, 6%);
 	--shadow: hsl(0, 0%, 60%);
 
 	--rotateX: 0deg;
@@ -21,6 +22,8 @@ html, * {
 
 body {
 	background: var(--background);
+	font-family: 'Roboto', sans-serif;
+	color: var(--text);
 }
 
 
@@ -37,15 +40,6 @@ article {
 	perspective: 600px;
 }
 
-/* Clickarea which catches the click event to flip card */
-.clickArea {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	background: transparent;
-	z-index: 100;
-	/* pointer-events: none; */
-}
 
 /* Added on click to flip card*/
 .clicked {
@@ -64,7 +58,7 @@ article > section {
 }
 
 /* Container for card sides */
-.sasjaCardContent {
+.card {
 	transform-style: preserve-3d;
 	background: var(--primary);
 	position: absolute;
@@ -74,17 +68,21 @@ article > section {
 }
 
 /* Both card sides */
-.sasjaCardContent > section {
+.card > section {
 	transform-style: preserve-3d;
 	background: var(--primary);
 	position: absolute;
 	height: 100%;
 	width: 100%;
 
+	display: flex;
+    flex-direction: column;
+	justify-content: start;
+
 	padding: 1rem;
 }
 
-.sasjaCardContent > section::before {
+.card > section::before {
 	content: "";
 	position: absolute;
 	width: 1rem;
@@ -98,7 +96,7 @@ article > section {
 	transform-origin: left center;
 }
 
-.sasjaCardContent > section::after {
+.card > section::after {
 	content: "";
 	position: absolute;
 	width: 100%;
@@ -115,35 +113,90 @@ article > section {
 
 /* ----------------------------- Card frontside ----------------------------- */
 
-.sasjaCardContent > section:last-of-type {
+.card .animContainer {
+	width: 100%;
+    height: 53%;
+    position: relative;
+}
+
+.card .animContainer > canvas {
+    width: 137%;
+    /* height: 100%; */
+    position: absolute;
+    top: -9%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.card .cardDetails {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
+	flex: 1;
 }
 
-.sasjaCardContent > section:last-of-type > .animContainer {
-	width: 100%;
-	background: darkgoldenrod;
-	display: grid;
-	place-items: center;
+.card .cardDetails > h2 {
+	font-weight: 700;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
 }
 
-.sasjaCardContent > section:last-of-type > section:last-of-type{
+.card .cardDetails > a {
+	text-decoration: none;
+	color: var(--text);
+	position: relative;
+	padding-left: 1.5rem;
+
+	line-height: 160%;
+}
+
+.card .cardDetails > a::before {
+	content: "";
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/* phone number */
+.card .cardDetails > a:nth-of-type(1)::before {
+	background: url(../images/phone.svg);
+	background-repeat: no-repeat;
+}
+
+/* email */
+.card .cardDetails > a:nth-of-type(2)::before {
+	background: url(../images/envelope.svg);
+	background-repeat: no-repeat;
+}
+
+/* website */
+.card .cardDetails > a:nth-of-type(3)::before {
+	background: url(../images/globe.svg);
+	background-repeat: no-repeat;
+}
+
+.card .cardDetails > div{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	margin-top: 1rem;
 }
 
-.sasjaCardContent > section:last-of-type > section:last-of-type > a {
+.card .cardDetails > div > a {
 	width: 2rem;
 	aspect-ratio: 1/1;
 }
 
-.sasjaCardContent > section:last-of-type > section:last-of-type > a:nth-of-type(1) {
+.card .cardDetails > div > a:nth-of-type(1) {
 	background: url(../images/instagram.svg);
 	background-repeat: no-repeat;
 }
 
-.sasjaCardContent > section:last-of-type > section:last-of-type > a:nth-of-type(2) {
+.card .cardDetails > div > a:nth-of-type(2) {
 	background: url(../images/linkedin.svg);
 	background-repeat: no-repeat;
 }
@@ -151,7 +204,7 @@ article > section {
 
 /* ------------------------------ Card backside ----------------------------- */
 
-.sasjaCardContent > section:first-of-type {
+.card > section:first-of-type {
 	rotate: y 180deg;
     transform: translateZ(1rem);
 
@@ -159,3 +212,5 @@ article > section {
 	place-items: center;
 	font-size: 2rem;
 }
+
+
