@@ -119,6 +119,18 @@ article > section {
     position: relative;
 }
 
+.card .animContainer > img {
+    width: 50%;
+    position: absolute;
+    bottom: 4rem;
+    left: 4rem;
+    z-index: 1;
+}
+
+.invis {
+	display: none;
+}
+
 .card .animContainer > canvas {
     width: 137%;
     /* height: 100%; */

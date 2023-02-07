@@ -64,3 +64,10 @@ function createCard(data) {
   // cardFirstName.innerHTML = data.member.name;
   // cardLastName.innerHTML = data.member.surname;
 };
+
+
+const hintImage = document.querySelector(".animContainer > img")
+
+canvasCharacter.addEventListener("click", () => {
+  hintImage.classList.add("invis")
+})
