@@ -26,18 +26,18 @@ clickArea.forEach((area) => {
 
 // rotate the card in 3d based on cursor position
 
-// const card = document.querySelector(".sasjaCard > section")
+const card = document.querySelector(".sasjaCard > section")
 
-// const root = document.documentElement;
+const root = document.documentElement;
 
-// document.addEventListener("mousemove", (e) => {
-//     const x = e.clientX - window.innerWidth / 2;
-//     const y = e.clientY - window.innerHeight / 2;
+document.addEventListener("mousemove", (e) => {
+    const x = e.clientX - window.innerWidth / 2;
+    const y = e.clientY - window.innerHeight / 2;
 
 
-//     root.style.setProperty('--rotateX', `${y * 0.05}deg`);
-//     root.style.setProperty('--rotateY', `${x * 0.05}deg`);
-// });
+    root.style.setProperty('--rotateX', `${y * 0.02}deg`);
+    root.style.setProperty('--rotateY', `${x * 0.02}deg`);
+});
 
 
 // fetch data from this link: https://whois.fdnd.nl/api/v1/member?id=cldczhjad16yh0av08jxscp0a and console.log it
