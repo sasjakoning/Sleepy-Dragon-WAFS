@@ -1,13 +1,15 @@
 
 :root {
-	--background: hsl(0, 0%, 27%);
-	--primary: hsl(0, 0%, 100%);
+	--background: hsl(204, 92%, 3%);
+	--primary: hsl(46, 13%, 77%);
+	--accent: hsl(174, 41%, 57%);
 	--text: hsl(0, 0%, 6%);
-	--shadow: hsl(0, 0%, 60%);
+	--shadow: hsl(348, 13%, 62%);
 
 	--rotateX: 0deg;
 	--rotateY: 0deg;
 }
+
 
 /* -------------------------------------------------------------------------- */
 /*                               General styling                              */
@@ -171,6 +173,9 @@ article > section {
 	left: 0;
 	top: 50%;
 	transform: translateY(-50%);
+
+	/* Little hack to turn black svg into any other color: https://codepen.io/sosuke/pen/Pjoqqp */
+	filter: invert(30%) sepia(73%) saturate(418%) hue-rotate(123deg) brightness(93%) contrast(90%);
 }
 
 /* phone number */
@@ -201,6 +206,7 @@ article > section {
 .card .cardDetails > div > a {
 	width: 2rem;
 	aspect-ratio: 1/1;
+	filter: invert(30%) sepia(73%) saturate(418%) hue-rotate(123deg) brightness(93%) contrast(90%);
 }
 
 .card .cardDetails > div > a:nth-of-type(1) {
