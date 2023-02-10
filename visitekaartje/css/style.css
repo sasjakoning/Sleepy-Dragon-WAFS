@@ -147,6 +147,7 @@ article > section {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	align-items: start;
 	flex: 1;
 }
 
@@ -201,6 +202,7 @@ article > section {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	margin-top: 1rem;
+	width: 100%;
 }
 
 .card .cardDetails > div > a {

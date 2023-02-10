@@ -13,12 +13,11 @@ const canvasCharacterRive = new rive.Rive({
 });
 
 
-const clickArea = document.querySelectorAll(".cardDetails");
+const clickAreas = document.querySelectorAll(".cardFlip");
 const cardContent = document.querySelector(".card");
 
-clickArea.forEach((area) => { 
+clickAreas.forEach((area) => { 
   area.addEventListener("click", () => {
-
     cardContent.classList.toggle("clicked");
   });
 });
@@ -52,7 +51,7 @@ fetch(url).then(response => response.json())
 .catch(err => console.error(err));
 
 
-// write a function that changes html content based on the parameter
+// function that changes html content based on the parameter
 
 function createCard(data) {
   console.log(data)
@@ -61,8 +60,6 @@ function createCard(data) {
 
   cardLastName.insertAdjacentHTML('beforeend', data.member.surname);
 
-  // cardFirstName.innerHTML = data.member.name;
-  // cardLastName.innerHTML = data.member.surname;
 };
 
 
