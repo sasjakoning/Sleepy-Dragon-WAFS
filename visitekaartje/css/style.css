@@ -1,12 +1,236 @@
 
 :root {
-	--background: hsl(0, 0%, 0%);
-	--primary: hsl(0, 0%, 100%);
+	--background: hsl(204, 92%, 3%);
+	--primary: hsl(46, 13%, 77%);
+	--accent: hsl(174, 41%, 57%);
+	--text: hsl(0, 0%, 6%);
+	--shadow: hsl(348, 13%, 62%);
+
+	--rotateX: 0deg;
+	--rotateY: 0deg;
 }
 
+
+/* -------------------------------------------------------------------------- */
+/*                               General styling                              */
+/* -------------------------------------------------------------------------- */
 
 html, * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	/* border: 1px solid red; */
 }
+
+body {
+	background: var(--background);
+	font-family: 'Roboto', sans-serif;
+	color: var(--text);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                Card styling                                */
+/* -------------------------------------------------------------------------- */
+
+
+article {
+	max-width: 20rem;
+	aspect-ratio: 23155/35907;
+	margin: 5rem auto;
+	position: relative;
+	perspective: 600px;
+}
+
+
+/* Added on click to flip card*/
+.clicked {
+	transform-style: preserve-3d;
+	transform: rotateY(180deg) translateZ(1rem);
+	transition: 1s all;
+}
+
+/*  Container used for cursor-follow effect  */
+article > section {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	transform: rotateY(var(--rotateY)) rotateX(var(--rotateX));
+}
+
+/* Container for card sides */
+.card {
+	transform-style: preserve-3d;
+	background: var(--primary);
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	transition: 1s all;
+}
+
+/* Both card sides */
+.card > section {
+	transform-style: preserve-3d;
+	background: var(--primary);
+	position: absolute;
+	height: 100%;
+	width: 100%;
+
+	display: flex;
+    flex-direction: column;
+	justify-content: start;
+
+	padding: 1rem;
+}
+
+.card > section::before {
+	content: "";
+	position: absolute;
+	width: 1rem;
+	height: 100%;
+	background: var(--shadow);
+
+	right: -1rem;
+	top: 0;
+
+	rotate: y 90deg;
+	transform-origin: left center;
+}
+
+.card > section::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1rem;
+	background: var(--shadow);
+
+	bottom: -1rem;
+	left: 0;
+	rotate: x -90deg;
+
+	transform-origin: top;
+}
+
+
+/* ----------------------------- Card frontside ----------------------------- */
+
+.card .animContainer {
+	width: 100%;
+    height: 53%;
+    position: relative;
+}
+
+.card .animContainer > img {
+    width: 50%;
+    position: absolute;
+    bottom: 4rem;
+    left: 4rem;
+    z-index: 1;
+}
+
+.invis {
+	display: none;
+}
+
+.card .animContainer > canvas {
+    width: 137%;
+    /* height: 100%; */
+    position: absolute;
+    top: -9%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.card .cardDetails {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: start;
+	flex: 1;
+}
+
+.card .cardDetails > h2 {
+	font-weight: 700;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+}
+
+.card .cardDetails > a {
+	text-decoration: none;
+	color: var(--text);
+	position: relative;
+	padding-left: 1.5rem;
+
+	line-height: 160%;
+}
+
+.card .cardDetails > a::before {
+	content: "";
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+
+	/* Little hack to turn black svg into any other color: https://codepen.io/sosuke/pen/Pjoqqp */
+	filter: invert(30%) sepia(73%) saturate(418%) hue-rotate(123deg) brightness(93%) contrast(90%);
+}
+
+/* phone number */
+.card .cardDetails > a:nth-of-type(1)::before {
+	background: url(../images/phone.svg);
+	background-repeat: no-repeat;
+}
+
+/* email */
+.card .cardDetails > a:nth-of-type(2)::before {
+	background: url(../images/envelope.svg);
+	background-repeat: no-repeat;
+}
+
+/* website */
+.card .cardDetails > a:nth-of-type(3)::before {
+	background: url(../images/globe.svg);
+	background-repeat: no-repeat;
+}
+
+.card .cardDetails > div{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 1rem;
+	width: 100%;
+}
+
+.card .cardDetails > div > a {
+	width: 2rem;
+	aspect-ratio: 1/1;
+	filter: invert(30%) sepia(73%) saturate(418%) hue-rotate(123deg) brightness(93%) contrast(90%);
+}
+
+.card .cardDetails > div > a:nth-of-type(1) {
+	background: url(../images/instagram.svg);
+	background-repeat: no-repeat;
+}
+
+.card .cardDetails > div > a:nth-of-type(2) {
+	background: url(../images/linkedin.svg);
+	background-repeat: no-repeat;
+}
+
+
+/* ------------------------------ Card backside ----------------------------- */
+
+.card > section:first-of-type {
+	rotate: y 180deg;
+    transform: translateZ(1rem);
+
+	display: grid;
+	place-items: center;
+	font-size: 2rem;
+}
+
+

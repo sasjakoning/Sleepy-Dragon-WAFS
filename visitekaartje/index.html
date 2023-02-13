@@ -8,9 +8,44 @@
 </head>
 <body>
     <main>
-        <h1>Hello World!</h1>
-        <img src="https://unsplash.it/640/425" alt="">
+        <article class="cardContainer">
+
+            <!-- card container for perspective -->
+            <section>
+
+                <!-- card container for flip function -->
+                <section class="card">
+                    
+                    <!-- backside -->
+                    <section class="cardBack cardFlip">
+                        <q>mooie quote</q>
+                    </section>
+        
+                    <!-- frontside -->
+                    <section class="cardFront">
+                        <figure class="animContainer">
+                            <img src="images/ringme.svg" alt="">
+                            <canvas id="canvas-character" width="1000" height="1000"></canvas>
+                        </figure>
+                        <section class="cardDetails cardFlip">
+                            <h2 class="cardName"><span></span> <span></span></h2>
+                            <a href="tel:+31631058146">+31 62130545146</a>
+                            <a href="mailto:sasjakoning@hotmail.com">sasjakoning@hotmail.com</a>
+                            <a href="https://sasjakoning.com/" target="blank">sasjakoning.com</a>
+                            <div>
+                                <a href="#" aria-label="Instagram"></a>
+                                <a href="#" aria-label="LinkedIn"></a>
+                            </div>
+                        </section>
+                    </section>
+
+                </section>
+
+            </section>
+        </article>
     </main>
+
+    <script src="https://unpkg.com/@rive-app/canvas@1.0.98"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
