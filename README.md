@@ -4,7 +4,7 @@ This repository contains projects made for the minor Web Design & Development. T
 
 ### Businesscard
 You can view my businesscard using this link:
-https://sasjakoning.github.io/web-app-from-scratch-2223/visitekaartje/index.html
+https://sasjakoning.github.io/Sleepy-Dragon-WAFS/visitekaartje
 
 ## Single Page App
 The single page app is the main project of this repository. The coming sections in this readme all involve the Single Page App.
