@@ -1,39 +1,66 @@
-# Web App From Scratch @cmda-minor-web 2021 - 2022
+# Web App From Scratch @cmda-minor-web 2022-2023
 
-In this course you will learn to build a web application without frameworks or unnecessary libraries, but with vanilla HTML, CSS & JavaScript as much as possible. The end result is a modular, single page web app (SPA). Data will be retrieved from an external API, manipulated and finally shown in the UI of the App. You will learn to apply interface principles when building and testing the interface. With the gained knowledge you will be able to build interactive prototypes, based on a user story and real data. Also you will gain a better understanding of how API's, frameworks and libraries work.
+This repository contains projects made for the minor Web Design & Development. This repository includes mainly two projects.
 
-## Assignment
+### Businesscard
+You can view my businesscard using this link:
+https://sasjakoning.github.io/web-app-from-scratch-2223/visitekaartje/index.html
 
-1. [Visitekaartje](https://github.com/cmda-minor-web/web-app-from-scratch-2223/blob/main/course/week-1.md#1-visitekaartje): Ontwerp en maak met HTML, CSS en JS een visitekaartje.
-2. [Squadpagina](https://github.com/cmda-minor-web/web-app-from-scratch-2223/blob/main/course/week-1.md#2-squadpagina): Ontwerp en maak met je team een squadpagina waarin je de verschillende visitekaartjes toont.
-3. [Single Page App](https://github.com/cmda-minor-web/web-app-from-scratch-2223/blob/master/course/week-2.md): Design and build a single page web app based on a User Story.
+## Single Page App
+The single page app is the main project of this repository. The coming sections in this readme all involve the Single Page App.
 
----
+### Debrief
 
-## Program
+During three weeks of the course Web App From Scratch, I will design and develop a Single Page App(SPA) based on a self-chosen user story. This SPA will be based on data fetched from an API.
 
-| Planning | Maandag | Dinsdag | Vrijdag  |
-|---|---|---|---|
-| [Week 1 - Hellooo 🤸](https://github.com/cmda-minor-web/web-app-from-scratch-2223/blob/master/course/week-1.md) | Introduction + visitekaartje | Squadpagina | Teambespreking |
-| [Week 2 - Hello API 🐒](https://github.com/cmda-minor-web/web-app-from-scratch-2223/blob/master/course/week-2.md) | College + briefing opdracht | College + Work | Feedbackgesprekken |
-| Voorjaarsvakantie |  |  |  |
-| [Week 3 - Refactor 🛠](https://github.com/cmda-minor-web/web-app-from-scratch-2223/blob/master/course/week-3.md)  | College + work  | College + work | Feedbackgesprekken  |
-| [Week 4 - Wrapping up 🎁](https://github.com/cmda-minor-web/web-app-from-scratch-2223/blob/master/course/week-4.md)  | College + work  | Review + work | Beoordelingsgesprekken  |
+I will design, build and test a prototype in atleast three iterations. I will write this SPA in vanilla HTML, CSS and JS and will avoid using frameworks and libraries. Micro libraries are allowed in neccessary.
 
-## Best Practices
+### Personal goals
 
-All work during this course will be tested against our [Best Practices for JavaScript](https://github.com/cmda-minor-web/best-practices/blob/master/javascript.md).
+For this project I wanted to experiment with API's and go more in depth in using Rive for my project. I also want to store data in local storage so the SPA can remember certain things the user has done.
 
-## Rubric
+<br>
 
-Your efforts will be graded using a single point rubric (see below). You will have to pass the criterion (centre column) to pass the course. During the test you will be consulted and will be given feedback on things we think deficient and things we think are an improvement on the criterion.
+# Sleepy Dragon, A Single Page App for short stories.
 
-| Deficiency | Criterion | Improvement |
-|:--|:--|:--|
-|  | *User Interface* - you design, build and test the user interface by applying interface design principles |  |
-|  | *Code structure* - you write modular, consistent and efficient HTML, CSS and JavaScript code by applying structure and best practices. You manage state for the application and the UI |  |
-|  | *Data management* - you understand how you can work with an external API using asynchronous code. You can retrieve data, manipulate and dynamically convert it to structured html |  |
-|  | *Project* - your app is working and published on GitHub Pages. Your project is thoroughly documented in the `README.md` file in your repository.  |  |
+Sleepy Dragon is a mobile single page app that fetches random stories from an API that can be read.
+
+## User story
+
+> As a parent, I want to find random short stories to entertain my child before bedtime so I don't have to continiously search for new stories.
+
+## Primary functions
+
+There are a few primary functions in this app. The user can:
+
+- Read a random story
+- Like/save a story
+- Read a story that has been saved
+- (optional) Use text to speech to have the story read to them
+- (optional) Use a dark/light mode
+- (optional) Use a search function to find a specific story
+
+## Mascot
+
+The primary audience of this app is children. To make the app more fun and appealing to children, I have created a mascot for the app. The mascot is a dragon that is called Sleepy. The mascot is used in the logo and in the app itself.
+
+### Sketches
+
+I made several sketches for the design of the mascot. I wanted the design to be appealing to children and to be fun. I also wanted the design to be simple and not too complex since I will be animating the mascot. I ended up going for a design that has more rounded shapes and a more friendly look.
+
+<img src="images-readme/sketches-1.jpg" width="200">
+<img src="images-readme/sketches-2.jpg" width="200">
+<img src="images-readme/sketches-3.jpg" width="200">
+<img src="images-readme/sketches-4.jpg" width="200">
+<img src="images-readme/sketches-5.jpg" width="200">
+<img src="images-readme/sketches-6.jpg" width="200">
+
+## Wireframes
+
+I made several wireframes for the app. I wanted to make sure that the app was easy to use and that the user could easily find the functions they wanted to use.
+
+<img src="images-readme/wireframes-1.jpg" width="200">
+
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
