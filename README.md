@@ -1,3 +1,5 @@
+### 🐛 Found a bug? Let me know with an issue! 🐛
+
 # Web App From Scratch @cmda-minor-web 2022-2023
 
 This repository contains projects made for the minor Web Design & Development. This repository includes mainly two projects.
