@@ -2,6 +2,8 @@
 
 <br>
 
+[An Internal Link to a Section Heading](#🪪businesscard🪪)
+
 ### 🐛 Found a bug? Let me know with an issue! 🐛
 
 <br>
