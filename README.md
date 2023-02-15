@@ -7,17 +7,17 @@
 <br>
 
 ### Table of contents
-- [📖 Sleepy Dragon, A Single Page App for short stories. 📖](#-sleepy-dragon--a-single-page-app-for-short-stories-)
+- [📖 Sleepy Dragon, A Single Page App for short stories. 📖](#-sleepy-dragon-a-single-page-app-for-short-stories-)
     + [🪪 Businesscard 🪪](#-businesscard-)
     + [📱 Single Page App 📱](#-single-page-app-)
     + [📋 Debrief 📋](#-debrief-)
-    + [✔️ Personal goals ✔️](#-personal-goals-)
+    + [✔️ Personal goals ✔️](#%EF%B8%8F-personal-goals-%EF%B8%8F)
   * [👤 User story 👤](#-user-story-)
   * [🤔 Primary functions 🤔](#-primary-functions-)
   * [🐉 Mascot 🐉](#-mascot-)
-    + [✏️ Mascot Sketches ✏️](#-mascot-sketches-)
+    + [✏️ Mascot Sketches ✏️](#%EF%B8%8F-mascot-sketches-%EF%B8%8F)
   * [📊 Flowchart 📊](#-flowchart-)
-  * [🎞️ Wireframes 🎞️](#-wireframes-)
+  * [🎞️ Wireframes 🎞️](#%EF%B8%8F-wireframes-%EF%B8%8F)
 
 
 <br>
