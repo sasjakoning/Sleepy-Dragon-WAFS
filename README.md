@@ -7,17 +7,17 @@
 <br>
 
 ### Table of contents
-- [📖 Sleepy Dragon, A Single Page App for short stories. 📖](#---sleepy-dragon--a-single-page-app-for-short-stories---)
-    + [🪪 Businesscard 🪪](#---businesscard---)
-    + [📱 Single Page App 📱](#---single-page-app---)
-    + [📋 Debrief 📋](#---debrief---)
-    + [✔️ Personal goals ✔️](#---personal-goals---)
-  * [👤 User story 👤](#---user-story---)
-  * [🤔 Primary functions 🤔](#---primary-functions---)
-  * [🐉 Mascot 🐉](#---mascot---)
-    + [✏️ Mascot Sketches ✏️](#---mascot-sketches---)
-  * [📊 Flowchart 📊](#---flowchart---)
-  * [🎞️ Wireframes 🎞️](#----wireframes----)
+- [📖 Sleepy Dragon, A Single Page App for short stories. 📖](#-sleepy-dragon--a-single-page-app-for-short-stories-)
+    + [🪪 Businesscard 🪪](#-businesscard-)
+    + [📱 Single Page App 📱](#-single-page-app-)
+    + [📋 Debrief 📋](#-debrief-)
+    + [✔️ Personal goals ✔️](#-personal-goals-)
+  * [👤 User story 👤](#-user-story-)
+  * [🤔 Primary functions 🤔](#-primary-functions-)
+  * [🐉 Mascot 🐉](#-mascot-)
+    + [✏️ Mascot Sketches ✏️](#-mascot-sketches-)
+  * [📊 Flowchart 📊](#-flowchart-)
+  * [🎞️ Wireframes 🎞️](#-wireframes-)
 
 
 <br>
@@ -106,11 +106,23 @@ I made several sketches for the design of the mascot. I wanted the design to be 
 
 <br>
 
+After making sketches on paper i continued to make designs for the character digitally. I made sever iterations and continiously recieved feedback from fellow students.
+
+<img src="images-readme/sketches-digital-1.jpg" width="400">
+<img src="images-readme/sketches-digital-2.jpg" width="400">
+<img src="images-readme/sketches-digital-3.jpg" width="400">
+<img src="images-readme/sketches-digital-4.jpg" width="400">
+
+Once I refined the design to my liking, I created several color variations of the mascot. I wanted to make sure that the mascot would be appealing to children and still be unique.
+
+<img src="images-readme/sketches-digital-5.jpg" width="600">
+
 ## 📊 Flowchart 📊
 
 In order to get the structure and functionality of the app properly set up, I created a flowchart that show the different states and functions that can be used.
 
 <img src="images-readme/flowchart.jpg">
+
 
 <br>
 
