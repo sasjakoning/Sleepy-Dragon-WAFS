@@ -2,9 +2,23 @@
 
 <br>
 
-[An Internal Link to a Section Heading](#-businesscard-)
-
 ### 🐛 Found a bug? Let me know with an issue! 🐛
+
+<br>
+
+### Table of contents
+- [📖 Sleepy Dragon, A Single Page App for short stories. 📖](#---sleepy-dragon--a-single-page-app-for-short-stories---)
+    + [🪪 Businesscard 🪪](#---businesscard---)
+    + [📱 Single Page App 📱](#---single-page-app---)
+    + [📋 Debrief 📋](#---debrief---)
+    + [✔️ Personal goals ✔️](#---personal-goals---)
+  * [👤 User story 👤](#---user-story---)
+  * [🤔 Primary functions 🤔](#---primary-functions---)
+  * [🐉 Mascot 🐉](#---mascot---)
+    + [✏️ Mascot Sketches ✏️](#---mascot-sketches---)
+  * [📊 Flowchart 📊](#---flowchart---)
+  * [🎞️ Wireframes 🎞️](#----wireframes----)
+
 
 <br>
 <br>
