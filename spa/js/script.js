@@ -14,6 +14,7 @@ btnStory.addEventListener('click', async () => {
         const data = await getRandomStory();
 
         windowLoading.remove()
+        // classes ipv remove
 
         const storyElement = document.createElement('p');
 
@@ -22,6 +23,7 @@ btnStory.addEventListener('click', async () => {
         windowContent.appendChild(storyElement);
     } catch (err) {
         console.log(err);
+        // error state on server offline etc
     }
 });
 
@@ -88,3 +90,29 @@ function handleTouchMove(evt) {
     xDown = null;
 }
 
+fetch("./template.html")
+    .then(response => response.text())
+    .then(text => define(text));
+
+function define(html) {
+    class testTemplate extends HTMLElement {
+
+        constructor() {
+            super();
+            console.log(html)
+
+            let template = this
+            console.log(this.content)
+
+            // var shadow = this.attachShadow({mode: 'open'});
+
+            // shadow.innerHTML = html;
+            // shadow.append(this.cloneNode(true));
+
+            // this.valueElement = shadow.querySelector("p");
+
+        }
+    }
+
+    customElements.define('test-template', testTemplate);
+}

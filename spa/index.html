@@ -19,17 +19,32 @@
             </ul>
         </nav>
     </header>
+
     <main class="touch-area">
         <h1>Sleepy Dragon</h1>
-        <button class="btn-story">Read story</button>
+        <button class="btn btn-story">Read story</button>
 
+        <test-template>hii</test-template>
+
+        <!-- window: story -->
         <article class="window window-story">
+            <button class="nav-back" aria-label="Return to home"></button>
+
+            <!-- loading state -->
+            <!-- do zero state first! (js not yet loaded) -->
             <section class="window-loading">
-                <p>Loading...</p>
+                <h2>Finding you a story...</h2>
+                <div class="anim-container">
+                    <img src="/visitekaartje/images/globe.svg" alt="placeholder">
+                </div>
             </section>
-            <section class="window-content"></section>
+
+            <section class="window-content">
+                <!-- insert content on succesful fetch -->
+            </section>
         </article>
     </main>
+
     <script src="js/script.js"></script>
 </body>
 </html>
