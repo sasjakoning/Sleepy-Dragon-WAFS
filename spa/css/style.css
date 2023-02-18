@@ -41,12 +41,27 @@ h3 {
 	font-size: 1rem;
 }
 
+.hidden {
+	display: none;
+}
+
 .btn {
 	border: hidden;
 	background: var(--secondary);
 	color: var(--text-light);
 
 	padding: .5rem 1rem;
+}
+
+/* hide checkbox in .btn */
+
+.btn > input[type="checkbox"] {
+	display: none;
+}
+
+main:has(.btn > input[type="checkbox"]:checked) .window-story {
+	animation: slide-in .5s ease-in-out;
+	display: block;
 }
 
 main {
