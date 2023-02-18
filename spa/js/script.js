@@ -94,25 +94,21 @@ fetch("./template.html")
     .then(response => response.text())
     .then(text => define(text));
 
-function define(html) {
-    class testTemplate extends HTMLElement {
 
+function define(html){
+
+    const template = document.createElement("template");
+    
+    template.innerHTML = html;
+    
+    class testTemplate extends HTMLElement {
         constructor() {
             super();
-            console.log(html)
-
-            let template = this
-            console.log(this.content)
-
-            // var shadow = this.attachShadow({mode: 'open'});
-
-            // shadow.innerHTML = html;
-            // shadow.append(this.cloneNode(true));
-
-            // this.valueElement = shadow.querySelector("p");
-
+            this.attachShadow({ mode: "open" });
+            this.shadowRoot.appendChild(template.content.cloneNode(true));
         }
     }
+    
+    customElements.define("test-template", testTemplate);
 
-    customElements.define('test-template', testTemplate);
 }
