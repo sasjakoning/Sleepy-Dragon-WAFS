@@ -22,26 +22,25 @@
 
     <main class="touch-area">
         <h1>Sleepy Dragon</h1>
-        <button class="btn btn-story">Read story</button>
-
-        <test-template>hii</test-template>
+        <!-- <button class="btn btn-story">Read story</button> -->
+        <label class="btn btn-story" for="read-story">
+            Read story
+            <input type="checkbox" id="read-story">
+        </label>
 
         <!-- window: story -->
         <article class="window window-story">
-            <button class="nav-back" aria-label="Return to home"></button>
+            <label class="nav-back" for="nav-back" aria-label="Return to home">
+                <input type="checkbox" id="nav-back">
+            </label>
 
-            <!-- loading state -->
-            <!-- do zero state first! (js not yet loaded) -->
-            <section class="window-loading">
-                <h2>Finding you a story...</h2>
-                <div class="anim-container">
-                    <img src="/visitekaartje/images/globe.svg" alt="placeholder">
-                </div>
+            <!-- no Javascript state -->
+            <section class="window-nojs">
+                <h2>Oops! This app needs Javascript to function!</h2>
+                <p>[Simple instructions here...]</p>
+                <img src="/visitekaartje/images/globe.svg" alt="placeholder">
             </section>
 
-            <section class="window-content">
-                <!-- insert content on succesful fetch -->
-            </section>
         </article>
     </main>
 
