@@ -8,16 +8,16 @@
 
 ### Table of contents
 - [📖 Sleepy Dragon, A Single Page App for short stories. 📖](#-sleepy-dragon-a-single-page-app-for-short-stories-)
-    + [🪪 Businesscard 🪪](#-businesscard-)
-    + [📱 Single Page App 📱](#-single-page-app-)
-    + [📋 Debrief 📋](#-debrief-)
-    + [✔️ Personal goals ✔️](#%EF%B8%8F-personal-goals-%EF%B8%8F)
-  * [👤 User story 👤](#-user-story-)
-  * [🤔 Primary functions 🤔](#-primary-functions-)
-  * [🐉 Mascot 🐉](#-mascot-)
-    + [✏️ Mascot Sketches ✏️](#%EF%B8%8F-mascot-sketches-%EF%B8%8F)
-  * [📊 Flowchart 📊](#-flowchart-)
-  * [🎞️ Wireframes 🎞️](#%EF%B8%8F-wireframes-%EF%B8%8F)
+    - [🪪 Businesscard 🪪](#-businesscard-)
+    - [📱 Single Page App 📱](#-single-page-app-)
+    - [📋 Debrief 📋](#-debrief-)
+    - [✔️ Personal goals ✔️](#️-personal-goals-️)
+  - [👤 User story 👤](#-user-story-)
+  - [🤔 Primary functions 🤔](#-primary-functions-)
+  - [🐉 Mascot 🐉](#-mascot-)
+    - [✏️ Mascot Sketches ✏️](#️-mascot-sketches-️)
+  - [📊 Flowchart 📊](#-flowchart-)
+  - [🎞️ Wireframes 🎞️](#️-wireframes-️)
 
 
 <br>
@@ -52,7 +52,7 @@ The single page app is the main project of this repository. The coming sections 
 
 During three weeks of the course Web App From Scratch, I will design and develop a Single Page App(SPA) based on a self-chosen user story. This SPA will be based on data fetched from an API.
 
-I will design, build and test a prototype in atleast three iterations. I will write this SPA in vanilla HTML, CSS and JS and will avoid using frameworks and libraries. Micro libraries are allowed in neccessary.
+I will design, build and test a prototype in at least three iterations. I will write this SPA in vanilla HTML, CSS and JS and will avoid using frameworks and libraries. Micro libraries are allowed in necessary.
 
 <br>
 
@@ -70,7 +70,7 @@ For this project I wanted to experiment with API's and go more in depth in using
 
 The user story I have chosen for this project is:
 
-> "As a parent, I want to find random short stories to entertain my child before bedtime so I don't have to continiously search for new stories."
+> "As a parent, I want to find random short stories to entertain my child before bedtime so I don't have to continuously search for new stories."
 
 <br>
 
@@ -106,7 +106,7 @@ I made several sketches for the design of the mascot. I wanted the design to be 
 
 <br>
 
-After making sketches on paper i continued to make designs for the character digitally. I made sever iterations and continiously recieved feedback from fellow students.
+After making sketches on paper i continued to make designs for the character digitally. I made sever iterations and continuously received feedback from fellow students.
 
 <img src="images-readme/sketches-digital-1.jpg" width="400">
 <img src="images-readme/sketches-digital-2.jpg" width="400">
@@ -155,4 +155,4 @@ The sketches gave me a general idea of where I wanted the interface to go. For m
 
 <!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
 
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
+<!-- How about a license here? 📜 (or is it a license?) 🤷 -->

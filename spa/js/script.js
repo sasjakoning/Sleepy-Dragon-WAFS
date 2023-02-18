@@ -1,39 +1,72 @@
-
+const windowNoJS = document.querySelector('.window-nojs');
+const windowStory = document.querySelector('.window-story');
 const btnStory = document.querySelector('.btn-story');
 
-const windowStory = document.querySelector('.window-story');
+// Add "hidden" class to windowNoJS to hide it if JavaScript is enabled
+windowNoJS.classList.add("hidden")
 
-const windowLoading = document.querySelector('.window-loading');
+// Array of template file paths to load. These are the files that define the custom elements.
+const templates = ["./templates/story-loading.html", "./templates/story-error.html", "./templates/story-success.html"];
 
-const windowContent = document.querySelector('.window-content');
+// Function to define a custom element based on a template file
+async function defineTemplate(templatePath) {
+  // Fetch the template file
+  const response = await fetch(templatePath);
+  const html = await response.text();
 
-btnStory.addEventListener('click', async () => {
-    openWindow(windowStory);
-    
-    try {
-        const data = await getRandomStory();
+  const template = document.createElement('template');
+  template.innerHTML = html;
 
-        windowLoading.remove()
-
-        const storyElement = document.createElement('p');
-
-        storyElement.textContent = data.story;
-		
-        windowContent.appendChild(storyElement);
-    } catch (err) {
-        console.log(err);
+  // Define a custom element using the template file
+  class CustomElement extends HTMLElement {
+    constructor() {
+      super();
+        //   Shadow DOM is a way to encapsulate styles and markup in a custom element. It ignores styles outside of the element and styles inside the element don't affect the rest of the page. Very cool.
+      this.attachShadow({ mode: "open" });
+      this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
-});
+  }
 
-// wrap the above eventlistener in a try catch block
+  // Get the tag name from the "data-tag-name" attribute in the template file
+  const tagName = template.content.querySelector('[data-tag-name]').getAttribute('data-tag-name');
 
-
-
-
-function openWindow(window) {
-    window.classList.add('visible', 'slide-in');
+  // Define the custom element using the tag name and the custom element class
+  customElements.define(tagName, CustomElement);
 }
 
+// Function to load all the templates
+async function loadTemplates() {
+  for (let i = 0; i < templates.length; i++) {
+    await defineTemplate(templates[i]);
+  }
+}
+
+// Load the templates
+loadTemplates();
+
+
+// Add a click event listener to the "Open Story" button
+btnStory.addEventListener('click', (event) => {
+  event.preventDefault();
+  
+  // Open the story window
+  openWindow(windowStory);
+
+  // Create a new instance of the "story-loading" element and add it to the window
+  const storyLoading = document.createElement('story-loading');
+  windowStory.appendChild(storyLoading);
+});
+
+
+// Function to open a window by adding the "visible" and "slide-in" classes
+function openWindow(window) {
+  window.classList.add('visible', 'slide-in');
+}
+
+// MDN Docs, Github Copilot and ChatGPT are my heroes. Web components are heckin' cool.
+
+
+//  Get ramdom story from API
 async function getRandomStory() {
 	
     try {
@@ -46,10 +79,11 @@ async function getRandomStory() {
     }
 }
 
-// Create a function that detects mobile touch swipes and console.log the direction
 
 
-// Create a function that detects mobile touch swipes and console.log the direction
+// WIP
+
+// The below function detects the swipe direction and logs it to the console
 
 const touchArea = document.querySelector('.touch-area');
 
@@ -59,8 +93,7 @@ touchArea.addEventListener('touchmove', handleTouchMove, false);
 let xDown = null;
 
 function getTouches(evt) {
-    return evt.touches ||             // browser API
-        evt.originalEvent.touches; // jQuery
+    return evt.touches
 }
 
 function handleTouchStart(evt) {
@@ -87,4 +120,3 @@ function handleTouchMove(evt) {
 
     xDown = null;
 }
-
