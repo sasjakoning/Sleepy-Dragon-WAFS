@@ -56,7 +56,9 @@ main {
 	border: .5rem inset var(--background-alt);
 }
 
-
+.animContainer > canvas {
+	width: 100%;
+}
 
 /* --------------- Generic button styling --------------- */
 
@@ -79,7 +81,10 @@ main:has(.btn > input[type="checkbox"]:checked) .window-story {
 	display: block;
 }
 
-
+.btn-story {
+	background: transparent;
+	width: 100%;
+}
 
 /* ------------------------------------------------------ */
 /*                   Back button styling                  */
