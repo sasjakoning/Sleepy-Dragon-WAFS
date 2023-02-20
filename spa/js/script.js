@@ -76,8 +76,6 @@ btnStory.addEventListener('click', async (event) => {
   storySuccessTitle.textContent = storyContent.title;
   storySuccessAuthor.textContent = storyContent.author;
 
-
-
   windowStory.appendChild(storySuccess);
 });
 
@@ -127,6 +125,26 @@ backBtn.addEventListener('click', (event) => {
         windowStory.classList.remove('visible');
       }, {once: true});
     }
+});
+
+
+/* -------------------------------------------- */
+/*                Rive animations               */
+/* -------------------------------------------- */
+
+const canvasDragonSleep = document.getElementById("canvas-dragon-sleep");
+
+const canvasDragonSleepRive = new rive.Rive({
+  src: "./images/sleepy_dragon.riv",
+  canvas: canvasDragonSleep,
+  autoplay: true,
+  stateMachines: "State Machine 1",
+  artboard: "dragon-sleeping",
+  fit: rive.Fit.cover,
+  onLoad: (_) => {
+    canvasDragonSleepRive.resizeDrawingSurfaceToCanvas();
+
+  },
 });
 
 
