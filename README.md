@@ -24,9 +24,12 @@
   - [📊 Flowchart 📊](#-flowchart-)
   - [🎞️ Wireframes 🎞️](#️-wireframes-️)
   - [📱 Prototype v1 📱](#-prototype-v1-)
+  - [🎨 Rive 🎨](#-rive-)
+  - [📱 Prototype v2 📱](#-prototype-v2-)
 
 
 <br>
+<hr>
 <br>
 
 # 📖 Sleepy Dragon, A Single Page App for short stories. 📖
@@ -50,8 +53,6 @@ https://sasjakoning.github.io/Sleepy-Dragon-WAFS/visitekaartje
 ### 📱 Single Page App 📱
 The single page app is the main project of this repository. The coming sections in this readme all involve the Single Page App.
 
-<hr>
-<br>
 <br>
 
 ### 📋 Debrief 📋
@@ -154,6 +155,8 @@ The sketches gave me a general idea of where I wanted the interface to go. For m
 <img src="images-readme/wireframes-2.jpg">
 
 <br>
+<hr>
+<br>
 
 ## 📱 Prototype v1 📱
 
@@ -186,28 +189,31 @@ I'm quite happy with what I learned about web components and how I applied them 
 
 <br>
 
-This is what versioon 1 of the prototype looks like:
+This is what version 1 of the prototype looks like:
 
 <img src="images-readme/v1.gif" width="200">
 
+<br>
+<hr>
+<br>
 
+## 🎨 Rive 🎨
 
-<!-- Add a link to your live demo in Github Pages 🌐-->
+While I was busy coding the main functionalities of the app, I also started working on drawing and animating the mascot using [Rive](https://rive.app/). Rive is a tool that allows you to animate vector and raster graphics specially made for the web. It works really well in the context of Motion Design where previously an animator had to draw their graphics in Illustrator, import them into After Effects and animate them, export them using Bodymovin and then import them into a web project using Lottie. Rive allows you to do all of this in one place. It also allows you to animate your graphics using a state machine, which enables the user to create complex animations including interactions.
 
-<!-- ☝️ replace this description with a description of your own work -->
+<br>
 
-<!-- replace the code in the /docs folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
+I previously used Rive before in a few projects and I'm very excited about it which is why I'm using it again for this app.
+Below is the first animation I made for the mascot. This animation was good practice however the drawing turned out to be way too horizontal to fit wel on a phone screen.
 
-<!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
+<img src="images-readme/rive-1.gif" width="400">
 
-<!-- Maybe a table of contents here? 📚 -->
+<br>
+<hr>
+<br>
 
-<!-- How about a section that describes how to install this project? 🤓 -->
+## 📱 Prototype v2 📱
 
-<!-- ...but how does one use this project? What are its features 🤔 -->
+Version 2 of the prototype is mainly focussed on refactoring the code. I switched to using hashes, routes and modules. Using modules helped me a lot when it came to the readability of the code. It was already coming close to turning into spaghetti code.
 
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
-
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
-<!-- How about a license here? 📜 (or is it a license?) 🤷 -->
+<br>
