@@ -16,6 +16,10 @@ function onRouteChanged() {
             console.log("story");
             routes.story();
             break;
+        case "#saved":
+            console.log("saved");
+            routes.saved();
+            break;
         case "#settings":
             console.log("settings");
             break;
