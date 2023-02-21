@@ -10,6 +10,9 @@
 	--text-light: hsl(0, 0%, 100%);
 }
 
+/* ------------------------------------------------------ */
+/*                     General styling                    */
+/* ------------------------------------------------------ */
 
 html, * {
 	padding: 0;
@@ -41,9 +44,23 @@ h3 {
 	font-size: 1rem;
 }
 
-.hidden {
-	display: none;
+main {
+	width: 100%;
+	height: 100dvh;
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+
+	background: var(--background);
+	border-radius: 2rem;
+	border: .5rem inset var(--background-alt);
 }
+
+.animContainer > canvas {
+	width: 100%;
+}
+
+/* --------------- Generic button styling --------------- */
 
 .btn {
 	border: hidden;
@@ -64,38 +81,105 @@ main:has(.btn > input[type="checkbox"]:checked) .window-story {
 	display: block;
 }
 
-main {
+.btn-story {
+	background: transparent;
 	width: 100%;
-	height: 100dvh;
-	display: grid;
-	place-items: center;
-	padding: 1rem;
-
-	background: var(--background);
-	border-radius: 2rem;
-	border: .5rem inset var(--background-alt);
 }
 
+/* ------------------------------------------------------ */
+/*                   Back button styling                  */
+/* ------------------------------------------------------ */
+
+.nav-back {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+
+	width: 1.5rem;
+	height: 1.5rem;
+
+	background: url(../images/back.svg) no-repeat center center;
+}
+
+.nav-back > input {
+	display: none;
+}
+
+
+/* ------------------------------------------------------ */
+/*                   Navigation styling                   */
+/* ------------------------------------------------------ */
+
+header .nav-toggle-label {
+	position: absolute;
+	background: url(../images/hamburger-closed.svg) no-repeat center center;
+	z-index: 1;
+	width: 1.5rem;
+	height: 1.5rem;
+	top: 1rem;
+	left: 1rem;
+} 
+
+header .nav-toggle-label > input {
+	display: none;
+}
+
+header:has(.nav-toggle-label > input:checked) > nav > ul {
+	transform: translateX(0);
+}
+
+header:has(.nav-toggle-label > input:checked) .nav-toggle-label {
+	background: url(../images/hamburger-open.svg) no-repeat center center;
+}
+
+
 header > nav > ul {
-	background: red;
+	background: var(--tertiary);
 	display: flex;
 	flex-direction: column;
+
 	gap: 1rem;
 	width: 90%;
+	height: 100%;
+
+	padding: 4rem 1rem 1rem 1rem;
+	list-style: none;
 
 	position: absolute;
 	top: 0;
 	transform: translateX(-100%);
+	transition: transform .5s ease-in-out;
 }
 
+
+
+/* ------------------------------------------------------ */
+/*                 Generic window styling                 */
+/* ------------------------------------------------------ */
+
 .window {
+	z-index: 10;
 	width: 100%;
 	height: 100%;
 	background-color: gray;
 	position: absolute;
+	padding: 3rem 1rem 1rem 1rem;
+
+	border-radius: 2rem;
+	border: .5rem inset var(--background-alt);
 }
 
 .window-story {
+	display: none;
+}
+
+
+
+/* ------------------------------------------------------ */
+/*                     Utility classes                    */
+/* ------------------------------------------------------ */
+
+.hidden {
 	display: none;
 }
 
@@ -113,5 +197,18 @@ header > nav > ul {
 	}
 	100% {
 		transform: translateX(0);
+	}
+}
+
+.slide-out {
+	animation: slide-out .5s ease-in-out;
+}
+
+@keyframes slide-out {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(100%);
 	}
 }

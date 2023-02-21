@@ -21,7 +21,9 @@ async function defineTemplate(templatePath) {
   class CustomElement extends HTMLElement {
     constructor() {
       super();
-        //   Shadow DOM is a way to encapsulate styles and markup in a custom element. It ignores styles outside of the element and styles inside the element don't affect the rest of the page. Very cool.
+        //   Shadow DOM is a way to encapsulate styles and markup in a custom element. 
+        // It ignores styles outside of the element and styles inside the element don't affect the rest of the page. 
+        // Very cool.
       this.attachShadow({ mode: "open" });
       this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
@@ -46,15 +48,35 @@ loadTemplates();
 
 
 // Add a click event listener to the "Open Story" button
-btnStory.addEventListener('click', (event) => {
+btnStory.addEventListener('click', async (event) => {
   event.preventDefault();
   
   // Open the story window
   openWindow(windowStory);
 
   // Create a new instance of the "story-loading" element and add it to the window
+  if(document.querySelector("story-loading")){
+    document.querySelector("story-loading").remove();
+  }
+  
   const storyLoading = document.createElement('story-loading');
   windowStory.appendChild(storyLoading);
+
+  // Get a random story from the API
+  const storyContent = await getRandomStory();
+
+  // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
+  storyLoading.classList.add('hidden');
+
+  const storySuccess = document.createElement('story-success');
+  const storySuccessTitle = storySuccess.shadowRoot.querySelector('[slot="story-success-title"]');
+  const storySuccessAuthor = storySuccess.shadowRoot.querySelector('[slot="story-success-author"]');
+  const storySuccessContent = storySuccess.shadowRoot.querySelector('[slot="story-success-content"]');
+  storySuccessContent.textContent = storyContent.story;
+  storySuccessTitle.textContent = storyContent.title;
+  storySuccessAuthor.textContent = storyContent.author;
+
+  windowStory.appendChild(storySuccess);
 });
 
 
@@ -68,16 +90,63 @@ function openWindow(window) {
 
 //  Get ramdom story from API
 async function getRandomStory() {
-	
-    try {
-        const response = await fetch(`https://shortstories-api.onrender.com/`);
-        const data = await response.json();
-        return data;
-    }
-    catch (err) {
-        console.log(err);
-    }
+  try {
+      const response = await fetch(`https://shortstories-api.onrender.com/`);
+      const data = await response.json();
+      return data;
+  }
+  catch (err) {
+      // On fail, add the "story-error" element to the DOM
+      console.log(err);
+      const storyError = document.createElement('story-error');
+      windowStory.appendChild(storyError);
+  }
 }
+
+
+
+const backBtn = document.querySelector('.nav-back');
+
+backBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    console.log("Back button clicked")
+
+    if(document.querySelector("story-success")){
+      document.querySelector("story-success").remove();
+    }
+
+    if(windowStory.classList.contains('visible')) {  
+      windowStory.classList.add('slide-out');
+      windowStory.addEventListener('animationend', () => {
+        console.log("Animation ended event fired")
+        windowStory.classList.remove('slide-out');
+        windowStory.classList.remove('slide-in');
+        windowStory.classList.remove('visible');
+      }, {once: true});
+    }
+});
+
+
+/* -------------------------------------------- */
+/*                Rive animations               */
+/* -------------------------------------------- */
+
+const canvasDragonSleep = document.getElementById("canvas-dragon-sleep");
+
+const canvasDragonSleepRive = new rive.Rive({
+  src: "./images/sleepy_dragon.riv",
+  canvas: canvasDragonSleep,
+  autoplay: true,
+  stateMachines: "State Machine 1",
+  artboard: "dragon-sleeping",
+  fit: rive.Fit.cover,
+  onLoad: (_) => {
+    canvasDragonSleepRive.resizeDrawingSurfaceToCanvas();
+
+  },
+});
+
 
 
 
