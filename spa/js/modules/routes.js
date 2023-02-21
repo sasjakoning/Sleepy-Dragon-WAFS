@@ -49,28 +49,28 @@ async function story() {
   
     riveDragonLoad(storyLoadingCanvas);
   
-    // // Get a random story from the API
-    // const storyContent = await getRandomStory();
+    // Get a random story from the API
+    const storyContent = await getRandomStory();
   
-    // // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
-    // storyLoading.classList.add("hidden");
+    // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
+    storyLoading.classList.add("hidden");
   
-    // const storySuccess = document.createElement("story-success");
-    // const storySuccessTitle = storySuccess.shadowRoot.querySelector(
-    //   '[slot="story-success-title"]'
-    // );
-    // const storySuccessAuthor = storySuccess.shadowRoot.querySelector(
-    //   '[slot="story-success-author"]'
-    // );
-    // const storySuccessContent = storySuccess.shadowRoot.querySelector(
-    //   '[slot="story-success-content"]'
-    // );
+    const storySuccess = document.createElement("story-success");
+    const storySuccessTitle = storySuccess.shadowRoot.querySelector(
+      '[slot="story-success-title"]'
+    );
+    const storySuccessAuthor = storySuccess.shadowRoot.querySelector(
+      '[slot="story-success-author"]'
+    );
+    const storySuccessContent = storySuccess.shadowRoot.querySelector(
+      '[slot="story-success-content"]'
+    );
 
-    // storySuccessContent.textContent = storyContent.story;
-    // storySuccessTitle.textContent = storyContent.title;
-    // storySuccessAuthor.textContent = storyContent.author;
+    storySuccessContent.textContent = storyContent.story;
+    storySuccessTitle.textContent = storyContent.title;
+    storySuccessAuthor.textContent = storyContent.author;
   
-    // windowStory.appendChild(storySuccess);
+    windowStory.appendChild(storySuccess);
 }
 export default {
     home,
