@@ -19,9 +19,11 @@
   - [👤 User story 👤](#-user-story-)
   - [🤔 Primary functions 🤔](#-primary-functions-)
   - [🐉 Mascot 🐉](#-mascot-)
-    - [✏️ Mascot Sketches ✏️](#️-mascot-sketches-️)
+    - [✏️ Mascot Design Sketches ✏️](#️-mascot-design-sketches-️)
+    - [✏️ Mascot State Sketches ✏️](#️-mascot-state-sketches-️)
   - [📊 Flowchart 📊](#-flowchart-)
   - [🎞️ Wireframes 🎞️](#️-wireframes-️)
+  - [📱 Prototype v1 📱](#-prototype-v1-)
 
 
 <br>
@@ -97,7 +99,7 @@ The primary audience of this app is children. To make the app more fun and appea
 
 <br>
 
-### ✏️ Mascot Sketches ✏️
+### ✏️ Mascot Design Sketches ✏️
 
 I made several sketches for the design of the mascot. I wanted the design to be appealing to children and to be fun. I also wanted the design to be simple and not too complex since I will be animating the mascot. I ended up going for a design that has more rounded shapes and a more friendly look.
 
@@ -121,6 +123,17 @@ Once I refined the design to my liking, I created several color variations of th
 
 <img src="images-readme/sketches-digital-5.jpg" width="600">
 
+<br>
+
+### ✏️ Mascot State Sketches ✏️
+
+Now that I had a design for the mascot, I made a few sketches where the character would pose for different states of the app. 
+
+<img src="images-readme/sketch-dragon-empty.jpg" width="400">
+<img src="images-readme/sketch-dragon-error.jpg" width="400">
+<img src="images-readme/sketch-dragon-search.jpg" width="400">
+<img src="images-readme/sketch-dragon-reading.jpg" width="400">
+
 ## 📊 Flowchart 📊
 
 In order to get the structure and functionality of the app properly set up, I created a flowchart that show the different states and functions that can be used.
@@ -139,6 +152,44 @@ I made several wireframes for the app. I wanted to make sure that the app was ea
 The sketches gave me a general idea of where I wanted the interface to go. For more detailed wireframes I used Figma. I made a wireframe for the home page, the story page, saved story page and several states of the app.
 
 <img src="images-readme/wireframes-2.jpg">
+
+<br>
+
+## 📱 Prototype v1 📱
+
+The first prototype has a very bare bones design where I only focus on the functionality of the app. There is a home page and a story page which has loading, error and succes states. There is also an extra page which warns the user that the app runs on Javascript, in case they don't have Javascript enabled.
+
+<br>
+
+There were a few things I was unfamiliar with or hadn't done before. I had never made a webapp before that runs on a single page but still "simulates" multiple pages by using hash routing. I started off coding this using normal `<button>`'s and assigning eventlisteners to them. Later on, I got thought to use `<a>` tags instead, which I applied in version 2 of the prototype.
+
+<br>
+
+I also discovered that there is a native way to use components in Javascript applying frameworks. This caught my interest and I decided to do more research on it. As it turned out, generally people use webcomponents and then apply bare text as html which sits inside the javascript file like so:
+
+```javascript 
+const template = document.createElement('template');
+template.innerHTML = `
+  <style>
+    h1 {
+      color: red;
+    }
+  </style>
+  <h1>Hello World</h1>
+`;
+```
+This however, defeated the purpose of using web components for me. I wanted to be able to use seperate HTML and CSS files for my components. I found a way to do this by using the `fetch()` function to get the HTML and CSS files and then applying them to the component. The code I used to do this is a little complex but comes down this: I create a variable that has the list of html templates that I want to insert. I run a function that fetches these files and create new components for each of them using names that are stated within the html files themselves. I can then append these to the DOM by simply using `document.createElement("template-name")`. In case there is content that needs to be inserted into the component, I can call these using `element.shadowRoot.querySelector( '[slot="slot-name"]');` and then insert the content using `element.textContent`.
+
+<br>
+
+I'm quite happy with what I learned about web components and how I applied them to this project. In practice I probably won't be using them as much as I did in this project, but it was a fun learning experience and gave me more understanding about how frameworks like React and Vue work.
+
+<br>
+
+This is what versioon 1 of the prototype looks like:
+
+<img src="images-readme/v1.gif" width="200">
+
 
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
