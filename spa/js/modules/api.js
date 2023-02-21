@@ -1,6 +1,7 @@
 
 //  Get ramdom story from API
 async function getRandomStory() {
+    const windowStory = document.querySelector(".window-story");
     console.log('finding random story')
     try {
         const response = await fetch(`https://shortstories-api.onrender.com/`);
