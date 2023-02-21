@@ -14,16 +14,16 @@
             </label>
             <ul>
                 <li>
-                    <button class="btn">Start Reading</button>
+                    <a href="#story" class="btn">Read story</a>
                 </li>
                 <li>
-                    <button class="btn">Saved stories</button>
+                    <a href="#saved">Saved stories</a>
                 </li>
                 <li>
-                    <button class="btn">Settings</button>
+                    <a href="#settings">Settings</a>
                 </li>
                 <li>
-                    <button class="btn">Credits</button>
+                    <a href="#credits">Credits</a>
                 </li>
             </ul>
         </nav>
@@ -32,19 +32,16 @@
     <main class="touch-area">
         <h1>Sleepy Dragon</h1>
         <!-- <button class="btn btn-story">Read story</button> -->
-        <label class="btn btn-story" for="read-story">
+        <a href="#story" class="btn btn-story">
             Read story
-            <input type="checkbox" id="read-story">
-            <section class="animContainer">
-                <canvas id="canvas-dragon-sleep" width="100" height="100"></canvas>
-            </section>
-        </label>
+        </a>
 
         <!-- window: story -->
-        <article class="window window-story">
-            <label class="nav-back" for="nav-back" aria-label="Return to home">
+        <article id="story" class="window window-story">
+            <a href="#home" class="nav-back"></a>
+            <!-- <label class="nav-back" for="nav-back" aria-label="Return to home">
                 <input type="checkbox" id="nav-back">
-            </label>
+            </label> -->
 
             <!-- no Javascript state -->
             <section class="window-nojs">
@@ -52,7 +49,10 @@
                 <p>[Simple instructions here...]</p>
                 <img src="/visitekaartje/images/globe.svg" alt="placeholder">
             </section>
+        </article>
 
+        <article id="saved" class="window window-saved">
+            <p>stuff</p>
         </article>
     </main>
 
