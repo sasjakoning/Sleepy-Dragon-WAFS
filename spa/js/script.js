@@ -1,3 +1,7 @@
+import { getRandomStory } from "./modules/getRandomStory.js";
+
+
+
 const windowNoJS = document.querySelector('.window-nojs');
 const windowStory = document.querySelector('.window-story');
 const btnStory = document.querySelector('.btn-story');
@@ -86,22 +90,6 @@ function openWindow(window) {
 }
 
 // MDN Docs, Github Copilot and ChatGPT are my heroes. Web components are heckin' cool.
-
-
-//  Get ramdom story from API
-async function getRandomStory() {
-  try {
-      const response = await fetch(`https://shortstories-api.onrender.com/`);
-      const data = await response.json();
-      return data;
-  }
-  catch (err) {
-      // On fail, add the "story-error" element to the DOM
-      console.log(err);
-      const storyError = document.createElement('story-error');
-      windowStory.appendChild(storyError);
-  }
-}
 
 
 
