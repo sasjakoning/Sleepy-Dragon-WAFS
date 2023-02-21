@@ -2,8 +2,8 @@ import { getRandomStory } from "./api.js";
 import { riveDragonLoad } from "./rive.js";
 
 function home() {
-    const activeWindow = document.querySelector(".visible" && ".window");
-    console.log(activeWindow.classList);
+    const activeWindow = document.querySelector(".visible.window");
+    console.log(activeWindow);
 
     for (let i = 0; i < activeWindow.classList.length; i++) {
         const className = activeWindow.classList[i];
@@ -25,15 +25,15 @@ function home() {
 }
 
 // Function to open a window by adding the "visible" and "slide-in" classes
-function openWindow(window) {
-    window.classList.add("visible", "slide-in-right");
+function openWindow(window, direction) {
+    window.classList.add(`visible`, `slide-in-${direction}`);
 }
 
 async function story() {
     const windowStory = document.querySelector(".window-story");
     
     // Open the story window
-    openWindow(windowStory);
+    openWindow(windowStory, "right");
 
     // Create a new instance of the "story-loading" element and add it to the window
     if (document.querySelector("story-loading")) {
@@ -72,7 +72,18 @@ async function story() {
   
     windowStory.appendChild(storySuccess);
 }
+
+
+function saved() { 
+  const windowSaved = document.querySelector(".window-saved");
+    
+  // Open the story window
+  openWindow(windowSaved, "bottom");
+}
+
+
 export default {
     home,
-    story
+    story,
+    saved
 }
