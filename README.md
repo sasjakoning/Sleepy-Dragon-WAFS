@@ -19,12 +19,17 @@
   - [👤 User story 👤](#-user-story-)
   - [🤔 Primary functions 🤔](#-primary-functions-)
   - [🐉 Mascot 🐉](#-mascot-)
-    - [✏️ Mascot Sketches ✏️](#️-mascot-sketches-️)
+    - [✏️ Mascot Design Sketches ✏️](#️-mascot-design-sketches-️)
+    - [✏️ Mascot State Sketches ✏️](#️-mascot-state-sketches-️)
   - [📊 Flowchart 📊](#-flowchart-)
   - [🎞️ Wireframes 🎞️](#️-wireframes-️)
+  - [📱 Prototype v1 📱](#-prototype-v1-)
+  - [🎨 Rive 🎨](#-rive-)
+  - [📱 Prototype v2 📱](#-prototype-v2-)
 
 
 <br>
+<hr>
 <br>
 
 # 📖 Sleepy Dragon, A Single Page App for short stories. 📖
@@ -48,8 +53,6 @@ https://sasjakoning.github.io/Sleepy-Dragon-WAFS/visitekaartje
 ### 📱 Single Page App 📱
 The single page app is the main project of this repository. The coming sections in this readme all involve the Single Page App.
 
-<hr>
-<br>
 <br>
 
 ### 📋 Debrief 📋
@@ -97,7 +100,7 @@ The primary audience of this app is children. To make the app more fun and appea
 
 <br>
 
-### ✏️ Mascot Sketches ✏️
+### ✏️ Mascot Design Sketches ✏️
 
 I made several sketches for the design of the mascot. I wanted the design to be appealing to children and to be fun. I also wanted the design to be simple and not too complex since I will be animating the mascot. I ended up going for a design that has more rounded shapes and a more friendly look.
 
@@ -121,6 +124,17 @@ Once I refined the design to my liking, I created several color variations of th
 
 <img src="images-readme/sketches-digital-5.jpg" width="600">
 
+<br>
+
+### ✏️ Mascot State Sketches ✏️
+
+Now that I had a design for the mascot, I made a few sketches where the character would pose for different states of the app. 
+
+<img src="images-readme/sketch-dragon-empty.jpg" width="400">
+<img src="images-readme/sketch-dragon-error.jpg" width="400">
+<img src="images-readme/sketch-dragon-search.jpg" width="400">
+<img src="images-readme/sketch-dragon-reading.jpg" width="400">
+
 ## 📊 Flowchart 📊
 
 In order to get the structure and functionality of the app properly set up, I created a flowchart that show the different states and functions that can be used.
@@ -140,23 +154,66 @@ The sketches gave me a general idea of where I wanted the interface to go. For m
 
 <img src="images-readme/wireframes-2.jpg">
 
+<br>
+<hr>
+<br>
 
-<!-- Add a link to your live demo in Github Pages 🌐-->
+## 📱 Prototype v1 📱
 
-<!-- ☝️ replace this description with a description of your own work -->
+The first prototype has a very bare bones design where I only focus on the functionality of the app. There is a home page and a story page which has loading, error and succes states. There is also an extra page which warns the user that the app runs on Javascript, in case they don't have Javascript enabled.
 
-<!-- replace the code in the /docs folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
+<br>
 
-<!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
+There were a few things I was unfamiliar with or hadn't done before. I had never made a webapp before that runs on a single page but still "simulates" multiple pages by using hash routing. I started off coding this using normal `<button>`'s and assigning eventlisteners to them. Later on, I got thought to use `<a>` tags instead, which I applied in version 2 of the prototype.
 
-<!-- Maybe a table of contents here? 📚 -->
+<br>
 
-<!-- How about a section that describes how to install this project? 🤓 -->
+I also discovered that there is a native way to use components in Javascript applying frameworks. This caught my interest and I decided to do more research on it. As it turned out, generally people use webcomponents and then apply bare text as html which sits inside the javascript file like so:
 
-<!-- ...but how does one use this project? What are its features 🤔 -->
+```javascript 
+const template = document.createElement('template');
+template.innerHTML = `
+  <style>
+    h1 {
+      color: red;
+    }
+  </style>
+  <h1>Hello World</h1>
+`;
+```
+This however, defeated the purpose of using web components for me. I wanted to be able to use seperate HTML and CSS files for my components. I found a way to do this by using the `fetch()` function to get the HTML and CSS files and then applying them to the component. The code I used to do this is a little complex but comes down this: I create a variable that has the list of html templates that I want to insert. I run a function that fetches these files and create new components for each of them using names that are stated within the html files themselves. I can then append these to the DOM by simply using `document.createElement("template-name")`. In case there is content that needs to be inserted into the component, I can call these using `element.shadowRoot.querySelector( '[slot="slot-name"]');` and then insert the content using `element.textContent`.
 
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
+<br>
 
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
+I'm quite happy with what I learned about web components and how I applied them to this project. In practice I probably won't be using them as much as I did in this project, but it was a fun learning experience and gave me more understanding about how frameworks like React and Vue work.
 
-<!-- How about a license here? 📜 (or is it a license?) 🤷 -->
+<br>
+
+This is what version 1 of the prototype looks like:
+
+<img src="images-readme/v1.gif" width="200">
+
+<br>
+<hr>
+<br>
+
+## 🎨 Rive 🎨
+
+While I was busy coding the main functionalities of the app, I also started working on drawing and animating the mascot using [Rive](https://rive.app/). Rive is a tool that allows you to animate vector and raster graphics specially made for the web. It works really well in the context of Motion Design where previously an animator had to draw their graphics in Illustrator, import them into After Effects and animate them, export them using Bodymovin and then import them into a web project using Lottie. Rive allows you to do all of this in one place. It also allows you to animate your graphics using a state machine, which enables the user to create complex animations including interactions.
+
+<br>
+
+I previously used Rive before in a few projects and I'm very excited about it which is why I'm using it again for this app.
+Below is the first animation I made for the mascot. This animation was good practice however the drawing turned out to be way too horizontal to fit wel on a phone screen.
+
+<img src="images-readme/rive-1.gif" width="400">
+
+<br>
+<hr>
+<br>
+
+## 📱 Prototype v2 📱
+
+Version 2 of the prototype is mainly focussed on refactoring the code. I switched to using hashes, routes and modules. Using modules helped me a lot when it came to the readability of the code. It was already coming close to turning into spaghetti code.
+
+<br>

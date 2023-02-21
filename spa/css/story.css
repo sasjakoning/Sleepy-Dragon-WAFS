@@ -1,3 +1,4 @@
-p {
-    color: pink;
+.animContainer > canvas {
+    width: 100%;
 }
+
