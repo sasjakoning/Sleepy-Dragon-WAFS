@@ -6,6 +6,10 @@
 
 <br>
 
+### Make sure to check out the branches for the latest version.
+
+<br>
+
 ### Table of contents
 - [📖 Sleepy Dragon, A Single Page App for short stories. 📖](#-sleepy-dragon-a-single-page-app-for-short-stories-)
     - [🪪 Businesscard 🪪](#-businesscard-)
