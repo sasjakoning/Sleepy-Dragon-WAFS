@@ -1,3 +1,19 @@
+async function listAllStories () {
+    console.log('fetching all stories');
+    const response = await fetch(`https://shortstories-api.onrender.com/stories`);
+    const data = await response.json();
+    return data;
+}
+
+function findStories(allStories) {
+    console.log('finding saved stories');
+    const existingStories = JSON.parse(localStorage.getItem("savedStories"));
+
+    console.log(existingStories);
+    const matchingStories = allStories.filter(story => existingStories.includes(story._id));
+    return matchingStories;
+}
+
 
 //  Get ramdom story from API
 async function getRandomStory() {
@@ -17,4 +33,4 @@ async function getRandomStory() {
 }
 
 
-export { getRandomStory };
+export { getRandomStory,  listAllStories , findStories};
