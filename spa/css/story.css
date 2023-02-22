@@ -19,3 +19,4 @@
 .save-toggle-label:has(.save-toggle:checked) {
     background: url(../images/heart-solid.svg) no-repeat center center;
 }
+
