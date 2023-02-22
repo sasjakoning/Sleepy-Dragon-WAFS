@@ -1,6 +1,8 @@
-import { getRandomStory } from "./api.js";
+import { getRandomStory, listAllStories, findStories } from "./api.js";
 import { riveDragonLoad } from "./rive.js";
-import { saveStory } from "./localstorage.js";
+import { saveStory, getStories } from "./localstorage.js";
+
+
 
 let currentStory = null;
 
@@ -29,6 +31,7 @@ function home() {
     }
   }
 }
+
 
 // Function to open a window by adding the "visible" and "slide-in" classes
 function openWindow(window, direction) {
@@ -64,6 +67,7 @@ async function story() {
   // Get a random story from the API
   const storyContent = await getRandomStory();
   
+  
   currentStory = storyContent;
 
   // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
@@ -94,11 +98,57 @@ async function story() {
 
 }
 
-function saved() {
+async function saved() {
   const windowSaved = document.querySelector(".window-saved");
+  const windowSavedContent = document.querySelector(".saved-content");
 
   // Open the story window
   openWindow(windowSaved, "bottom");
+
+  // Create a new instance of the "story-loading" element and add it to the window
+  if (document.querySelector("saved-loading")) {
+    document.querySelector("saved-loading").remove();
+  }
+
+  const savedLoading = document.createElement("saved-loading");
+  windowSavedContent.appendChild(savedLoading);
+
+  const allApiStories = await listAllStories();
+  console.log('GOT ALL STORIES', allApiStories);
+  const savedStories = await findStories(allApiStories);
+
+  console.log(savedStories);
+
+  // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
+  savedLoading.classList.add("hidden");
+
+  const savedStory = document.createElement("saved-storypart");
+
+  savedStories.forEach((story) => {
+    const savedStoryPart = document.createElement("saved-storypart");
+
+    const savedStoryTitle = savedStoryPart.shadowRoot.querySelector(
+      '[slot="saved-storypart-title"]'
+    );
+    savedStoryTitle.textContent = story.title;
+
+    const savedStoryAuthor = savedStoryPart.shadowRoot.querySelector(
+      '[slot="saved-storypart-author"]'
+    );
+    savedStoryAuthor.textContent = story.author;
+
+    windowSavedContent.appendChild(savedStoryPart);
+  });
+
+
+
+
+  // const saveBtn = storySuccess.shadowRoot.querySelector(".save-toggle");
+
+  // saveBtn.addEventListener("change", () => {
+  //   saveStory(saveBtn, currentStory);
+  // });
+
 }
 
 export default {
