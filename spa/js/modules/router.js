@@ -1,13 +1,23 @@
 import routes from "./routes.js";
 
-window.addEventListener("hashchange", onRouteChanged);
+window.addEventListener("load", () => {
+    onRouteChanged(window.location.hash);
+});
 
-function onRouteChanged() {
-    console.log(window.location.hash);
+window.addEventListener("hashchange", () => onRouteChanged(window.location.hash));
 
-    const hash = window.location.hash;
+function onRouteChanged(myHash) {
+
+    const hash = myHash ?? window.location.hash;
+    console.log(hash);
+
+    // console.log(allApiStories);
     
     switch(hash) {
+        case '': 
+            console.log("home");
+            routes.home();        
+            break;
         case "#home":
             console.log("home");
             routes.home();
@@ -15,6 +25,10 @@ function onRouteChanged() {
         case "#story":
             console.log("story");
             routes.story();
+            break;
+        case "#saved":
+            console.log("saved");
+            routes.saved();
             break;
         case "#settings":
             console.log("settings");
@@ -28,7 +42,6 @@ function onRouteChanged() {
     }
 }
   
-
 
 
 export { onRouteChanged };

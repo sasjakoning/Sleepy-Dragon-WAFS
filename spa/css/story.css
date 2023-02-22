@@ -2,3 +2,21 @@
     width: 100%;
 }
 
+.save-toggle-label {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url(../images/heart-regular.svg) no-repeat center center;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+}   
+
+.save-toggle {
+    display: none;
+}
+
+.save-toggle-label:has(.save-toggle:checked) {
+    background: url(../images/heart-solid.svg) no-repeat center center;
+}
+

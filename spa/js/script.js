@@ -13,6 +13,10 @@ const templates = [
   "./templates/story-loading.html",
   "./templates/story-error.html",
   "./templates/story-success.html",
+  "./templates/saved-error.html",
+  "./templates/saved-loading.html",
+  "./templates/saved-storypart.html"
+
 ];
 
 // Load the templates
