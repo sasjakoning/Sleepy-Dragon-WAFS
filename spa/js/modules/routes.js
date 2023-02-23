@@ -40,13 +40,7 @@ function home() {
 
 // Function to open a window by adding the "visible" and "slide-in" classes
 function openWindow(window, direction) {
-  const navToggle = document.querySelector(".nav-toggle");
-
   window.classList.add(`visible`, `slide-in-${direction}`);
-
-  if (navToggle.checked) {
-    navToggle.checked = false;
-  }
 }
 
 async function story() {
