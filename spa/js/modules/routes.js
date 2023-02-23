@@ -1,5 +1,5 @@
 import { getRandomStory, listAllStories, findStories } from "./api.js";
-import { riveDragonLoad } from "./rive.js";
+import { riveDragonLoad, riveDragonTitle } from "./rive.js";
 import { saveStory } from "./localstorage.js";
 
 
@@ -7,6 +7,11 @@ import { saveStory } from "./localstorage.js";
 let currentStory = null;
 
 function home() {
+
+  const titleCanvas = document.querySelector("#canvas-dragon-title");
+
+  riveDragonTitle(titleCanvas);
+
   const activeWindow = document.querySelector(".visible.window");
 
   if (activeWindow) {
