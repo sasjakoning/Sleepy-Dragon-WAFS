@@ -7,9 +7,9 @@
 	--dark: hsl(252 100% 2%);
 }
 
-/* ------------------------------------------------------ */
-/*                     General styling                    */
-/* ------------------------------------------------------ */
+/* -------------------------------------------- */
+/*                General styling               */
+/* -------------------------------------------- */
 
 html, * {
 	padding: 0;
@@ -19,7 +19,7 @@ html, * {
 
 body {
 	background: var(--dark);
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: 'nunito', serif;
 	width: 100dvw;
 }
 
@@ -32,13 +32,18 @@ h1 {
 }
 
 h2 {
-	/* 24px */
+	/* 32px */
 	font-size: 2rem;
 }
 
 h3 {
-	/* 16px */
-	font-size: 1rem;
+	/* 24px */
+	font-size: 1.5rem;
+}
+
+h4 {
+	/* 20px */
+	font-size: 1.25rem;
 }
 
 main {
@@ -46,12 +51,27 @@ main {
 	/* width: 100%; */
 	height: 100dvh;
 	display: grid;
-	place-items: center;
+	place-items: start;
 	padding: 1rem;
 
-	background: var(--light);
+	position: relative;
+
+	background-color: var(--light);
 	border-radius: 2rem;
 	border: .5rem inset var(--dark);
+}
+
+/* book pattern background */
+main::before {
+	content: '';
+	width: 200%;
+	height: 300%;
+	position: absolute;
+	transform-origin: center;
+	background-image: url(../images/bg-book.svg);
+	rotate: -30deg;
+	opacity: .1;
+	z-index: -1;
 }
 
 .animContainer > canvas {
@@ -62,14 +82,23 @@ main {
 	width: 100%;
 }
 
-/* --------------- Generic button styling --------------- */
+.animPlaceholder {
+	height: 100%;
+	aspect-ratio: 1/1;
+	background-color: gray;
+}
+
+/* -------------------------------------------- */
+/*                Button styling                */
+/* -------------------------------------------- */
 
 .btn {
 	border: hidden;
 	background: var(--tertiary);
 	color: var(--light);
+	text-align: center;
 
-	padding: .5rem 1rem;
+	padding: 1rem;
 	border-radius: 12px;
 	text-decoration: none;
 }
@@ -95,21 +124,44 @@ main:has(.btn > input[type="checkbox"]:checked) .window-story {
 }
 
 .btn-story {
-	height: 6rem;
+	height: 7rem;
 	width: 100%;
 	background: var(--primary);
 	padding: 1rem;
+	margin-bottom: 1.5rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .btn-featured {
 	width: 100%;
 	background: var(--secondary);
 	padding: 1rem;
+	margin-top: .5rem;
+	margin-bottom: 1.5rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
-/* ------------------------------------------------------ */
-/*                   Back button styling                  */
-/* ------------------------------------------------------ */
+.settings {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.settings > .btn {
+	width: 100%;
+}
+
+/* -------------------------------------------- */
+/*              Back button styling             */
+/* -------------------------------------------- */
 
 .nav-back {
 	position: absolute;
@@ -127,9 +179,9 @@ main:has(.btn > input[type="checkbox"]:checked) .window-story {
 }
 
 
-/* ------------------------------------------------------ */
-/*                 Generic window styling                 */
-/* ------------------------------------------------------ */
+/* -------------------------------------------- */
+/*                Window styling                */
+/* -------------------------------------------- */
 
 .window {
 	width: calc(100% + 16px);
@@ -155,9 +207,9 @@ main:has(.btn > input[type="checkbox"]:checked) .window-story {
 
 
 
-/* ------------------------------------------------------ */
-/*                     Utility classes                    */
-/* ------------------------------------------------------ */
+/* -------------------------------------------- */
+/*                Utility classes               */
+/* -------------------------------------------- */
 
 .hidden {
 	display: none;
