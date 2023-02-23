@@ -1,6 +1,6 @@
 import { getRandomStory, listAllStories, findStories } from "./api.js";
 import { riveDragonLoad } from "./rive.js";
-import { saveStory, getStories } from "./localstorage.js";
+import { saveStory } from "./localstorage.js";
 
 
 
