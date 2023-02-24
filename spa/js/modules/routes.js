@@ -2,6 +2,7 @@ import { getRandomStory, listAllStories, findStories } from "./api.js";
 import { riveAnimLoad, riveAnimTitle } from "./rive.js";
 import { saveStory } from "./localstorage.js";
 import { closeActiveWindow, openWindow, removeDuplicateWindow, hideWindow } from "./utilities.js";
+import { returnToHome } from "./navigation.js"
 
 let currentStory = null;
 
@@ -13,6 +14,10 @@ function home() {
   // Close the active window
   const activeWindow = document.querySelector(".visible.window");
 
+  // const smth = returnToHome(activeWindow);
+  // console.log(smth)
+
+
   activeWindow?.classList.forEach((className) => {
     if (className.includes("slide-")) {
       const [, , animDirection] = className.split("-");
@@ -22,7 +27,7 @@ function home() {
       activeWindow.addEventListener(
         "animationend",
         (event) => {
-          closeActiveWindow(event, activeWindow, animDirection);
+          closeActiveWindow(activeWindow, animDirection);
         },
         { once: true }
       );
@@ -80,6 +85,8 @@ async function story() {
   saveBtn.addEventListener("change", () => {
     saveStory(saveBtn, currentStory);
   });
+
+  
 }
 
 async function saved() {
@@ -98,8 +105,6 @@ async function saved() {
   const allApiStories = await listAllStories();
   console.log("GOT ALL STORIES", allApiStories);
   const savedStories = await findStories(allApiStories);
-
-  console.log(savedStories);
 
   // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
   hideWindow(savedLoading)
@@ -121,12 +126,6 @@ async function saved() {
 
     windowSavedContent.appendChild(savedStoryPart);
   });
-
-  // const saveBtn = storySuccess.shadowRoot.querySelector(".save-toggle");
-
-  // saveBtn.addEventListener("change", () => {
-  //   saveStory(saveBtn, currentStory);
-  // });
 }
 
 export default {

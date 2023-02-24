@@ -1,6 +1,6 @@
 
 
-const closeActiveWindow = (event, activeWindow, animDirection) => {
+const closeActiveWindow = (activeWindow, animDirection) => {
     activeWindow.classList.remove("visible");
     activeWindow.classList.remove(`slide-out-${animDirection}`);
     activeWindow.classList.remove(`slide-in-${animDirection}`);
