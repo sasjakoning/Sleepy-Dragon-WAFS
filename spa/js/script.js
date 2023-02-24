@@ -3,7 +3,6 @@ import { goBack } from "./modules/navigation.js";
 import { onRouteChanged } from "./modules/router.js";
 
 const windowNoJS = document.querySelector(".window-nojs");
-const btnStory = document.querySelector(".btn-story");
 
 // Add "hidden" class to windowNoJS to hide it if JavaScript is enabled
 windowNoJS.classList.add("hidden");
@@ -16,23 +15,16 @@ const templates = [
   "./templates/saved-error.html",
   "./templates/saved-loading.html",
   "./templates/saved-storypart.html"
-
 ];
 
 // Load the templates
 loadTemplates(templates);
 
 
-// MDN Docs, Github Copilot and ChatGPT are my heroes. Web components are heckin' cool.
 
-const backBtn = document.querySelector(".nav-back");
 
-backBtn.addEventListener("click", (event) => {
-  // event.preventDefault();
 
-  // goBack();
 
-});
 
 // WIP
 

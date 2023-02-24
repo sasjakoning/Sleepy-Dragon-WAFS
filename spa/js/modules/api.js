@@ -8,10 +8,14 @@ async function listAllStories () {
 function findStories(allStories) {
     console.log('finding saved stories');
     const existingStories = JSON.parse(localStorage.getItem("savedStories"));
-
+    
     console.log(existingStories);
-    const matchingStories = allStories.filter(story => existingStories.includes(story._id));
-    return matchingStories;
+    
+    if(existingStories != null) {
+        const matchingStories = allStories.filter(story => existingStories.includes(story._id));
+        return matchingStories;
+    }
+
 }
 
 
