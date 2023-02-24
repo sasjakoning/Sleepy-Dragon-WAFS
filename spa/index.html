@@ -7,41 +7,48 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <label for="nav-toggle" class="nav-toggle-label">
-                <input type="checkbox" id="nav-toggle" class="nav-toggle">
-            </label>
-            <ul>
-                <li>
-                    <a href="#story" class="btn">Read story</a>
-                </li>
-                <li>
-                    <a href="#saved">Saved stories</a>
-                </li>
-                <li>
-                    <a href="#settings">Settings</a>
-                </li>
-                <li>
-                    <a href="#credits">Credits</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
     <main class="touch-area">
-        <h1>Sleepy Dragon</h1>
-        <!-- <button class="btn btn-story">Read story</button> -->
+        
+        <section class="animContainer main-title">
+            <canvas id="canvas-dragon-title" width="100" height="100"></canvas>
+        </section>
+
         <a href="#story" class="btn btn-story">
-            Read story
+            <h3>Start Reading</h3>
+            <!-- <section class="animContainer">
+                <canvas id="canvas-dragon-reading" width="100" height="100"></canvas>
+            </section> -->
+            <section class="animPlaceholder"></section>
         </a>
+
+        <h3>Featured story</h3>
+
+        <a href="#" class="btn btn-featured">
+            <div>
+                <h3>The Gnat and The Bull</h3>
+                <p>By Aesop's Fables</p>
+            </div>
+            <!-- <section class="animContainer">
+                <canvas id="canvas-dragon-reading" width="100" height="100"></canvas>
+            </section> -->
+            <section class="animPlaceholder">
+                <div></div>
+            </section>
+        </a>
+
+        <div class="settings">
+            <a href="#saved" class="btn">
+                Saved stories
+            </a>
+            <a href="#credits" class="btn">
+                Credits
+            </a>
+        </div>
+
 
         <!-- window: story -->
         <article id="story" class="window window-story">
             <a href="#home" class="nav-back"></a>
-            <!-- <label class="nav-back" for="nav-back" aria-label="Return to home">
-                <input type="checkbox" id="nav-back">
-            </label> -->
 
             <!-- no Javascript state -->
             <section class="window-nojs">

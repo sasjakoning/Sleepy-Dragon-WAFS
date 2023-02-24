@@ -1,5 +1,5 @@
 import { getRandomStory, listAllStories, findStories } from "./api.js";
-import { riveDragonLoad } from "./rive.js";
+import { riveDragonLoad, riveDragonTitle } from "./rive.js";
 import { saveStory } from "./localstorage.js";
 
 
@@ -7,6 +7,11 @@ import { saveStory } from "./localstorage.js";
 let currentStory = null;
 
 function home() {
+
+  const titleCanvas = document.querySelector("#canvas-dragon-title");
+
+  riveDragonTitle(titleCanvas);
+
   const activeWindow = document.querySelector(".visible.window");
 
   if (activeWindow) {
@@ -35,13 +40,7 @@ function home() {
 
 // Function to open a window by adding the "visible" and "slide-in" classes
 function openWindow(window, direction) {
-  const navToggle = document.querySelector(".nav-toggle");
-
   window.classList.add(`visible`, `slide-in-${direction}`);
-
-  if (navToggle.checked) {
-    navToggle.checked = false;
-  }
 }
 
 async function story() {

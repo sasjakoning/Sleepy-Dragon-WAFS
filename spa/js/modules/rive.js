@@ -17,4 +17,23 @@ function riveDragonLoad(canvas) {
   });
 }
 
-export { riveDragonLoad };
+
+function riveDragonTitle(canvas) {
+
+  console.log(canvas)
+
+  const canvasDragonTitleRive = new rive.Rive({
+    src: "./images/sleepy_dragon.riv",
+    canvas: canvas,
+    autoplay: true,
+    stateMachines: "dragon-sleeping-states",
+    artboard: "dragon-sleeping",
+    fit: rive.Fit.cover,
+    onLoad: (_) => {
+      canvasDragonTitleRive.resizeDrawingSurfaceToCanvas();
+  
+    },
+  });
+}
+
+export { riveDragonLoad, riveDragonTitle };

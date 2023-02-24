@@ -1,29 +1,25 @@
-
 :root {
-	--background: hsl(0, 0%, 100%);
-	--background-alt: hsl(0, 0%, 0%);
-	--primary: hsl(0, 0%, 0%);
-	--secondary: hsl(0, 0%, 30%);
-	--tertiary: hsl(0, 0%, 60%);
+	--primary: hsl(44 88% 55%);
+	--secondary: hsl(223 100% 68%);
+	--tertiary: hsl(141 67% 48%);
 
-	--text: hsl(0, 0%, 0%);
-	--text-light: hsl(0, 0%, 100%);
+	--light: hsl(144 100% 98%);
+	--dark: hsl(252 100% 2%);
 }
 
-/* ------------------------------------------------------ */
-/*                     General styling                    */
-/* ------------------------------------------------------ */
+/* -------------------------------------------- */
+/*                General styling               */
+/* -------------------------------------------- */
 
 html, * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	color: var(--text);
 }
 
 body {
-	background: var(--background-alt);
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	background: var(--dark);
+	font-family: 'nunito', serif;
 	width: 100dvw;
 }
 
@@ -36,13 +32,18 @@ h1 {
 }
 
 h2 {
-	/* 24px */
+	/* 32px */
 	font-size: 2rem;
 }
 
 h3 {
-	/* 16px */
-	font-size: 1rem;
+	/* 24px */
+	font-size: 1.5rem;
+}
+
+h4 {
+	/* 20px */
+	font-size: 1.25rem;
 }
 
 main {
@@ -50,26 +51,56 @@ main {
 	/* width: 100%; */
 	height: 100dvh;
 	display: grid;
-	place-items: center;
+	place-items: start;
 	padding: 1rem;
 
-	background: var(--background);
+	position: relative;
+
+	background-color: var(--light);
 	border-radius: 2rem;
-	border: .5rem inset var(--background-alt);
+	border: .5rem inset var(--dark);
+}
+
+/* book pattern background */
+main::before {
+	content: '';
+	width: 200%;
+	height: 300%;
+	position: absolute;
+	transform-origin: center;
+	background-image: url(../images/bg-book.svg);
+	rotate: -30deg;
+	opacity: .1;
+	z-index: -1;
 }
 
 .animContainer > canvas {
 	width: 100%;
 }
 
-/* --------------- Generic button styling --------------- */
+.animContainer {
+	width: 100%;
+}
+
+.animPlaceholder {
+	height: 100%;
+	aspect-ratio: 1/1;
+	background-color: gray;
+}
+
+/* -------------------------------------------- */
+/*                Button styling                */
+/* -------------------------------------------- */
 
 .btn {
 	border: hidden;
-	background: var(--secondary);
-	color: var(--text-light);
+	background: var(--tertiary);
+	color: var(--light);
+	text-align: center;
 
-	padding: .5rem 1rem;
+	padding: 1rem;
+	border-radius: 12px;
+	text-decoration: none;
 }
 
 /* hide checkbox in .btn */
@@ -83,14 +114,54 @@ main:has(.btn > input[type="checkbox"]:checked) .window-story {
 	display: block;
 }
 
+/* -------------------------------------------- */
+/*               Homepage styling               */
+/* -------------------------------------------- */
+
+
+.main-title {
+	margin-top: -2rem;
+}
+
 .btn-story {
-	/* background: transparent; */
+	height: 7rem;
+	width: 100%;
+	background: var(--primary);
+	padding: 1rem;
+	margin-bottom: 1.5rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.btn-featured {
+	width: 100%;
+	background: var(--secondary);
+	padding: 1rem;
+	margin-top: .5rem;
+	margin-bottom: 1.5rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.settings {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.settings > .btn {
 	width: 100%;
 }
 
-/* ------------------------------------------------------ */
-/*                   Back button styling                  */
-/* ------------------------------------------------------ */
+/* -------------------------------------------- */
+/*              Back button styling             */
+/* -------------------------------------------- */
 
 .nav-back {
 	position: absolute;
@@ -108,58 +179,9 @@ main:has(.btn > input[type="checkbox"]:checked) .window-story {
 }
 
 
-/* ------------------------------------------------------ */
-/*                   Navigation styling                   */
-/* ------------------------------------------------------ */
-
-header .nav-toggle-label {
-	position: absolute;
-	background: url(../images/hamburger-closed.svg) no-repeat center center;
-	z-index: 11;
-	width: 1.5rem;
-	height: 1.5rem;
-	top: 1rem;
-	left: 1rem;
-} 
-
-header .nav-toggle-label > input {
-	display: none;
-}
-
-header:has(.nav-toggle-label > input:checked) > nav > ul {
-	transform: translateX(0);
-}
-
-header:has(.nav-toggle-label > input:checked) .nav-toggle-label {
-	background: url(../images/hamburger-open.svg) no-repeat center center;
-}
-
-
-header > nav > ul {
-	background: var(--tertiary);
-	display: flex;
-	flex-direction: column;
-
-	z-index: 10;
-
-	gap: 1rem;
-	width: 90%;
-	height: 100%;
-
-	padding: 4rem 1rem 1rem 1rem;
-	list-style: none;
-
-	position: absolute;
-	top: 0;
-	transform: translateX(-100%);
-	transition: transform .5s ease-in-out;
-}
-
-
-
-/* ------------------------------------------------------ */
-/*                 Generic window styling                 */
-/* ------------------------------------------------------ */
+/* -------------------------------------------- */
+/*                Window styling                */
+/* -------------------------------------------- */
 
 .window {
 	width: calc(100% + 16px);
@@ -169,7 +191,7 @@ header > nav > ul {
 	padding: 3rem 1rem 1rem 1rem;
 
 	border-radius: 2rem;
-	border: .5rem inset var(--background-alt);
+	border: .5rem inset var(--dark);
 
 	display: none;
 }
@@ -185,9 +207,9 @@ header > nav > ul {
 
 
 
-/* ------------------------------------------------------ */
-/*                     Utility classes                    */
-/* ------------------------------------------------------ */
+/* -------------------------------------------- */
+/*                Utility classes               */
+/* -------------------------------------------- */
 
 .hidden {
 	display: none;
