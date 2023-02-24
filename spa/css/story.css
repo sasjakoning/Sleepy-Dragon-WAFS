@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .animContainer > canvas {
     width: 100%;
 }
@@ -20,3 +26,43 @@
     background: url(../images/heart-solid.svg) no-repeat center center;
 }
 
+.window-success {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 1.5rem;
+}
+
+.window-success > p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 160%;
+    height: 50%;
+    overflow-y: scroll;
+
+    position: relative;
+}
+
+.window-success > p::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4rem;
+    background: linear-gradient( rgb(255 255 255 / 0) 0%, var(--primary) 100%);
+    bottom: 0;
+}
+
+.window-success > span {
+    display: flex;
+
+    margin-top: .5rem;
+    margin-bottom: 1.5rem;
+}
+
+.window-success > .anim-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    aspect-ratio: 1/1;
+}
