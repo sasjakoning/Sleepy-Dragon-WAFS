@@ -1,5 +1,5 @@
 
-function riveDragonLoad(canvas) {
+function riveAnimLoad(canvas) {
 
   console.log(canvas)
 
@@ -18,7 +18,7 @@ function riveDragonLoad(canvas) {
 }
 
 
-function riveDragonTitle(canvas) {
+function riveAnimTitle(canvas) {
 
   console.log(canvas)
 
@@ -36,4 +36,4 @@ function riveDragonTitle(canvas) {
   });
 }
 
-export { riveDragonLoad, riveDragonTitle };
+export { riveAnimLoad, riveAnimTitle };
