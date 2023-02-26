@@ -20,8 +20,12 @@ const templates = [
 // Load the templates
 loadTemplates(templates);
 
+// Fire router on load and on hashchange
+window.addEventListener("load", () => {
+  onRouteChanged(window.location.hash);
+});
 
-
+window.addEventListener("hashchange", () => onRouteChanged(window.location.hash));
 
 
 

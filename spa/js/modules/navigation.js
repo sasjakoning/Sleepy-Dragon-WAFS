@@ -18,4 +18,16 @@ function goBack() {
     }
 };
 
-export { goBack };
+function returnToHome(activeWindow) {
+    activeWindow?.classList.forEach((className) => {
+        if(className.includes('slide-')) {
+            const [, , animDirection] = className.split('-');
+
+            activeWindow.classList.add(`slide-out-${animDirection}`);
+
+            return animDirection;
+        }
+    })
+}
+
+export { goBack, returnToHome };
