@@ -1,11 +1,5 @@
 import routes from "./routes.js";
 
-window.addEventListener("load", () => {
-    onRouteChanged(window.location.hash);
-});
-
-window.addEventListener("hashchange", () => onRouteChanged(window.location.hash));
-
 function onRouteChanged(myHash) {
 
     const hash = myHash ?? window.location.hash;

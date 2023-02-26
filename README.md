@@ -17,6 +17,7 @@
     - [📋 Debrief 📋](#-debrief-)
     - [✔️ Personal goals ✔️](#️-personal-goals-️)
   - [👤 User story 👤](#-user-story-)
+  - [Chosen API](#chosen-api)
   - [🤔 Primary functions 🤔](#-primary-functions-)
   - [🐉 Mascot 🐉](#-mascot-)
     - [✏️ Mascot Design Sketches ✏️](#️-mascot-design-sketches-️)
@@ -80,6 +81,10 @@ The user story I have chosen for this project is:
 > "As a parent, I want to find random short stories to entertain my child before bedtime so I don't have to continuously search for new stories."
 
 <br>
+
+## Chosen API
+
+I chose to go with a small API that contains short stories. The API is called [Shortstories API](https://github.com/poseidon-code/shortstories-api) by Poseidon. This API contains a simple JSON list of stories. The API is free to use and does not require any authentication.
 
 ## 🤔 Primary functions 🤔
 
