@@ -17,7 +17,6 @@
     - [📋 Debrief 📋](#-debrief-)
     - [✔️ Personal goals ✔️](#️-personal-goals-️)
   - [👤 User story 👤](#-user-story-)
-  - [Chosen API](#chosen-api)
   - [🤔 Primary functions 🤔](#-primary-functions-)
   - [🐉 Mascot 🐉](#-mascot-)
     - [✏️ Mascot Design Sketches ✏️](#️-mascot-design-sketches-️)
@@ -27,6 +26,9 @@
   - [📱 Prototype v1 📱](#-prototype-v1-)
   - [🎨 Rive 🎨](#-rive-)
   - [📱 Prototype v2 📱](#-prototype-v2-)
+  - [🎨 App design 🎨](#-app-design-)
+  - [📱 Prototype v3 📱](#-prototype-v3-)
+  - [Refactoring](#refactoring)
 
 
 <br>
@@ -81,10 +83,6 @@ The user story I have chosen for this project is:
 > "As a parent, I want to find random short stories to entertain my child before bedtime so I don't have to continuously search for new stories."
 
 <br>
-
-## Chosen API
-
-I chose to go with a small API that contains short stories. The API is called [Shortstories API](https://github.com/poseidon-code/shortstories-api) by Poseidon. This API contains a simple JSON list of stories. The API is free to use and does not require any authentication.
 
 ## 🤔 Primary functions 🤔
 
@@ -221,4 +219,46 @@ Below is the first animation I made for the mascot. This animation was good prac
 
 Version 2 of the prototype is mainly focussed on refactoring the code. I switched to using hashes, routes and modules. Using modules helped me a lot when it came to the readability of the code. It was already coming close to turning into spaghetti code.
 
+This is what version 2 of the prototype looks like:
+
+<img src="images-readme/v2.gif" width="200">
+
 <br>
+<hr>
+<br>
+
+## 🎨 App design 🎨
+
+At this point in the process I didn't spend much time designing the actual interface yet. Now that the functionality of the app is past it's first stage, I can could focusing on the design. I wanted the app to look friendly and child focussed. Even though the app wont specifically be used by children(But their parents), I wanted to make sure that the app would be appealing to them.
+
+<br>
+
+There were a few designs I found online that caught my attention. I used these as reference for the app design.
+
+<img src="images-readme/references.jpg" width="600">
+
+<br>
+
+I made several versions of the app design. It didn't take long for me to figure out which colors I wanted to use but the actual layout and detail of the design took me a bit longer. After showing the iterations to my peers I got some good feedback and was able to improve the design.
+
+<img src="images-readme/designs-iterations.jpg" width="600">
+
+<br>
+
+Below is the final design of the app. I'm quite happy with how it turned out. I think it's a good balance between playful and easy to handle.
+
+<img src="images-readme/designs-final.jpg" width="600">
+
+
+## 📱 Prototype v3 📱
+
+Version 3 was all about implementing the finished design into the app.
+
+
+## Refactoring
+
+On friday 24-02-2023 I had a meeting with my coach. During this meeting we discussed the app and the progress I had made so far. He gave me some good feedback and I decided to refactor the code a bit. The main point he gave me during this feedback sessions is to pay attention to the way my code was structured. At that point my code worked like "waterfall" code. which meant I had a function that that did something in a separate module, that then fired another function that did something in another module and so on. This made the code hard to follow. 
+
+<br>
+
+To improve readability of my code I started refactoring my code to not use functions within functions and avoid jumping from one module to another without returning to the main Javascript file first. 
