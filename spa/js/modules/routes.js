@@ -1,6 +1,6 @@
 import { getRandomStory, listAllStories, findStories } from "./api.js";
 import { riveAnimLoad, riveAnimTitle } from "./rive.js";
-import { saveStory } from "./localstorage.js";
+import { saveStory, deleteStory } from "./localstorage.js";
 import { closeActiveWindow, openWindow, removeDuplicateWindow, hideWindow } from "./utilities.js";
 import { returnToHome } from "./navigation.js"
 
@@ -13,10 +13,6 @@ function home() {
 
   // Close the active window
   const activeWindow = document.querySelector(".visible.window");
-
-  // const smth = returnToHome(activeWindow);
-  // console.log(smth)
-
 
   activeWindow?.classList.forEach((className) => {
     if (className.includes("slide-")) {
@@ -83,10 +79,13 @@ async function story() {
   const saveBtn = storySuccess.shadowRoot.querySelector(".save-toggle");
 
   saveBtn.addEventListener("change", () => {
-    saveStory(saveBtn, currentStory);
+    if (saveBtn.checked) {
+      saveStory(currentStory);
+    }else if (!saveBtn.checked) {
+      deleteStory(currentStory);
+    }
   });
 
-  
 }
 
 async function saved() {
