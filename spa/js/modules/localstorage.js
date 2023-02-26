@@ -1,32 +1,35 @@
+// add story to localstorage
+function saveStory(story) {
+  console.log("checked");
 
-function saveStory(btn, story) {
-    console.log(story)
-    if (btn.checked) {
-        // Get the story
-        console.log('checked');
-        const existingStories = JSON.parse(localStorage.getItem("savedStories") || '[]')
+  const existingStories = JSON.parse(
+    localStorage.getItem("savedStories") || "[]"
+  );
 
-        console.log(existingStories);
+  if (existingStories === null) {
+    console.log("no stories saved");
 
-        if (existingStories === null) {
-            console.log('no stories saved');
-
-            localStorage.setItem("savedStories", JSON.stringify([story._id]));
-
-        } else {
-
-            console.log('stories saved');
-            existingStories.push(story._id);
-            localStorage.setItem("savedStories", JSON.stringify(existingStories));
-
-
-        }
-
-    }else{
-        console.log('unchecked');
-        
-        // Remove the story
-    }
+    localStorage.setItem("savedStories", JSON.stringify([story._id]));
+  } else {
+    console.log("stories saved");
+    existingStories.push(story._id);
+    localStorage.setItem("savedStories", JSON.stringify(existingStories));
+  }
 }
 
-export { saveStory }
+// Remove the story from localstorage
+function deleteStory(story) {
+  console.log("unchecked");
+
+  const existingStories = JSON.parse(
+    localStorage.getItem("savedStories") || "[]"
+  );
+
+  const storyIndex = existingStories.indexOf(story._id);
+
+  existingStories.splice(storyIndex, 1);
+
+  localStorage.setItem("savedStories", JSON.stringify(existingStories));
+}
+
+export { saveStory, deleteStory };
