@@ -59,6 +59,8 @@ main {
 	background-color: var(--light);
 	border-radius: 2rem;
 	border: .5rem inset var(--dark);
+
+	overflow: hidden;
 }
 
 /* book pattern background */
