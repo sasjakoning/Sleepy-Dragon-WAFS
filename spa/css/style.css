@@ -3,7 +3,7 @@
 	--secondary: hsl(223 100% 68%);
 	--tertiary: hsl(141 67% 48%);
 
-	--light: hsl(144 100% 98%);
+	--light: hsl(0, 0%, 100%);
 	--dark: hsl(252 100% 2%);
 }
 
@@ -19,7 +19,7 @@ html, * {
 
 body {
 	background: var(--dark);
-	font-family: 'nunito', serif;
+	font-family: 'Nunito', sans-serif;
 	width: 100dvw;
 }
 
