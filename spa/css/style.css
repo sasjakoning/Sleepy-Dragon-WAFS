@@ -5,6 +5,10 @@
 
 	--light: hsl(0, 0%, 100%);
 	--dark: hsl(252 100% 2%);
+
+	--xPos: 0%;
+	--yPos: 0%;
+
 }
 
 /* -------------------------------------------- */
@@ -242,6 +246,13 @@ story-loading {
 	transform: translate(-50%, -50%);
 }
 
+saved-storypart {
+	--xPos: 0%;
+	--yPos: 0%;
+
+	transform: translate(var(--xPos), var(--yPos));
+}
+
 
 /* -------------------------------------------- */
 /*                Utility classes               */
@@ -254,6 +265,19 @@ story-loading {
 .visible {
 	display: block;
 }
+
+.slide-out {
+	animation: slideOut 0.5s forwards;
+  }
+  
+  @keyframes slideOut {
+	from {
+	  transform: translateX(var(--xPos));
+	}
+	to {
+	  transform: translateX(calc(var(--xPos) - 100%));
+	}
+  }
 
 .slide-in-right {
 	animation: slide-in .5s ease-in-out;
