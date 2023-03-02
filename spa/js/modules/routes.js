@@ -3,6 +3,7 @@ import { riveAnimLoad, riveAnimTitle } from "./rive.js";
 import { saveStory, deleteStory } from "./localstorage.js";
 import { closeActiveWindow, openWindow, removeDuplicateWindow, hideWindow } from "./utilities.js";
 import { returnToHome } from "./navigation.js"
+import { swipeAndRemove } from "./touchHandler.js"
 
 let currentStory = null;
 
@@ -125,6 +126,17 @@ async function saved() {
 
     windowSavedContent.appendChild(savedStoryPart);
   });
+
+  // The below function detects the swipe direction and logs it to the console
+
+  const touchArea = document.querySelectorAll("saved-storypart");
+
+  touchArea.forEach((element) => {
+    const slideElement = element.shadowRoot.querySelector(".window-saved-storypart");
+    swipeAndRemove(slideElement, element)
+  });
+    
+
 }
 
 export default {

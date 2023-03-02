@@ -3,8 +3,12 @@
 	--secondary: hsl(223 100% 68%);
 	--tertiary: hsl(141 67% 48%);
 
-	--light: hsl(144 100% 98%);
+	--light: hsl(0, 0%, 100%);
 	--dark: hsl(252 100% 2%);
+
+	--xPos: 0%;
+	--yPos: 0%;
+
 }
 
 /* -------------------------------------------- */
@@ -19,7 +23,7 @@ html, * {
 
 body {
 	background: var(--dark);
-	font-family: 'nunito', serif;
+	font-family: 'Nunito', sans-serif;
 	width: 100dvw;
 }
 
@@ -242,6 +246,23 @@ story-loading {
 	transform: translate(-50%, -50%);
 }
 
+saved-storypart {
+	border-radius: 1rem;
+    background: linear-gradient(90deg, rgb(197, 197, 214), rgb(154, 154, 168));
+
+	position: relative;
+}
+
+saved-storypart::before {
+	content: '';
+	position: absolute;
+	width: 2rem;
+	height: 2rem;
+	background: url(../images/trash.svg) no-repeat center center;
+	top: 50%;
+	right: 1rem;
+	transform: translate(0, -50%);
+}
 
 /* -------------------------------------------- */
 /*                Utility classes               */

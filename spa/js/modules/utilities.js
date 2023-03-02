@@ -5,6 +5,24 @@ const closeActiveWindow = (activeWindow, animDirection) => {
     activeWindow.classList.remove(`slide-out-${animDirection}`);
     activeWindow.classList.remove(`slide-in-${animDirection}`);
     activeWindow.removeEventListener("animationend", closeActiveWindow);
+
+    console.log(activeWindow.id)
+
+    if(activeWindow.id === 'story') {
+        const loader = activeWindow.querySelector("story-loading");
+        const content = activeWindow.querySelector("story-success");
+
+        loader.remove();
+        content.remove();
+
+    }else if(activeWindow.id === 'saved') {
+        const loader = activeWindow.querySelector("saved-loading");
+        const content = activeWindow.querySelector("saved-storypart");
+
+        loader.remove();
+        content.remove();
+    }
+
 };
 
 
