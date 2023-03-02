@@ -37,10 +37,45 @@
 /* --------------- success state -------------- */
 
 .window-saved-storypart {
+    --xPos: 0%;
+	--yPos: 0%;
+
     width: 100%;
     height: 6rem;
     border-radius: 1rem;
     background: rgb(210,210,227);
 
     padding: 1rem;
+
+    transform: translate(var(--xPos), var(--yPos));
+	transition: translate 0.5s ease-in-out;
+}
+
+
+/* ---------------------- Utilities --------------------- */
+
+.slide-out {
+	animation: slideOut 0.5s forwards;
+  }
+  
+@keyframes slideOut {
+from {
+	transform: translateX(var(--xPos));
+}
+to {
+	transform: translateX(calc(var(--xPos) - 100%));
+}
+}
+
+.slide-back {
+	animation: slideBack 0.5s forwards;
+}
+
+@keyframes slideBack {
+	from {
+		transform: translateX(var(--xPos));
+	}
+	to {
+		transform: translateX(0px);
+	}
 }

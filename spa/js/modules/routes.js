@@ -132,7 +132,8 @@ async function saved() {
   const touchArea = document.querySelectorAll("saved-storypart");
 
   touchArea.forEach((element) => {
-    swipeAndRemove(element)
+    const slideElement = element.shadowRoot.querySelector(".window-saved-storypart");
+    swipeAndRemove(slideElement, element)
   });
     
 

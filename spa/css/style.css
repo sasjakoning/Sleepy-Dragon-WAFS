@@ -247,12 +247,22 @@ story-loading {
 }
 
 saved-storypart {
-	--xPos: 0%;
-	--yPos: 0%;
+	border-radius: 1rem;
+    background: linear-gradient(90deg, rgb(197, 197, 214), rgb(154, 154, 168));
 
-	transform: translate(var(--xPos), var(--yPos));
+	position: relative;
 }
 
+saved-storypart::before {
+	content: '';
+	position: absolute;
+	width: 2rem;
+	height: 2rem;
+	background: url(../images/trash.svg) no-repeat center center;
+	top: 50%;
+	right: 1rem;
+	transform: translate(0, -50%);
+}
 
 /* -------------------------------------------- */
 /*                Utility classes               */
@@ -265,19 +275,6 @@ saved-storypart {
 .visible {
 	display: block;
 }
-
-.slide-out {
-	animation: slideOut 0.5s forwards;
-  }
-  
-  @keyframes slideOut {
-	from {
-	  transform: translateX(var(--xPos));
-	}
-	to {
-	  transform: translateX(calc(var(--xPos) - 100%));
-	}
-  }
 
 .slide-in-right {
 	animation: slide-in .5s ease-in-out;
