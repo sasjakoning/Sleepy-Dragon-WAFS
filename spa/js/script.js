@@ -14,7 +14,8 @@ const templates = [
   "./templates/story-success.html",
   "./templates/saved-error.html",
   "./templates/saved-loading.html",
-  "./templates/saved-storypart.html"
+  "./templates/saved-storypart.html",
+  "./templates/saved-empty.html",	
 ];
 
 // Load the templates

@@ -112,7 +112,11 @@ async function saved() {
   // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
   hideWindow(savedLoading);
 
-  // const savedStory = document.createElement("saved-storypart");
+  if(savedStories.length === 0){
+    const savedEmpty = document.createElement("saved-empty");
+    windowSavedContent.appendChild(savedEmpty);
+    return;
+  }
 
   savedStories.forEach((story) => {
     const savedStoryLink = document.createElement("a");
@@ -155,8 +159,6 @@ async function error() {
   closeActiveWindow();
 
   const windowError = document.querySelector(".window-error");
-  const storyLoadingCanvas = document.querySelector("#canvas-dragon-load");
-  riveAnimLoad(storyLoadingCanvas);
   openWindow(windowError, "right");
 }
 

@@ -236,6 +236,10 @@ main:has(.btn > input[type="checkbox"]:checked) .window-story {
 	background: var(--tertiary);
 }
 
+.window-error > img {
+	width: 100%;
+}
+
 .window-error > .btn {
 	background: var(--light);
 	color: var(--dark);
