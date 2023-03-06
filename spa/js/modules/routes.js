@@ -8,32 +8,16 @@ import { swipeAndRemove } from "./touchHandler.js"
 let currentStory = null;
 
 function home() {
+  closeActiveWindow();
+
   // Load the dragon title animation
   const titleCanvas = document.querySelector("#canvas-dragon-title");
   riveAnimTitle(titleCanvas);
 
-  // Close the active window
-  const activeWindow = document.querySelector(".visible.window");
-
-  activeWindow?.classList.forEach((className) => {
-    if (className.includes("slide-")) {
-      const [, , animDirection] = className.split("-");
-
-      activeWindow.classList.add(`slide-out-${animDirection}`);
-
-      activeWindow.addEventListener(
-        "animationend",
-        (event) => {
-          closeActiveWindow(activeWindow, animDirection);
-        },
-        { once: true }
-      );
-    }
-  });
 }
 
 async function story(id) {
-  console.log(id)
+  closeActiveWindow();
 
   const windowStory = document.querySelector(".window-story");
 
@@ -102,6 +86,7 @@ async function story(id) {
 }
 
 async function saved() {
+  closeActiveWindow();
   const windowSaved = document.querySelector(".window-saved");
   const windowSavedContent = document.querySelector(".saved-content");
 
@@ -119,12 +104,18 @@ async function saved() {
   const savedStories = await findSavedStories(allApiStories);
 
   // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
-  hideWindow(savedLoading)
+  hideWindow(savedLoading);
 
-  const savedStory = document.createElement("saved-storypart");
+  // const savedStory = document.createElement("saved-storypart");
 
   savedStories.forEach((story) => {
+    const savedStoryLink = document.createElement("a");
+    savedStoryLink.href = `#id=${story._id}`;
+
+    console.log(savedStoryLink)
+
     const savedStoryPart = document.createElement("saved-storypart");
+    savedStoryLink.appendChild(savedStoryPart);
 
     const savedStoryTitle = savedStoryPart.shadowRoot.querySelector(
       '[slot="saved-storypart-title"]'
@@ -138,7 +129,7 @@ async function saved() {
 
     savedStoryPart.dataset.storyId = story._id;
 
-    windowSavedContent.appendChild(savedStoryPart);
+    windowSavedContent.appendChild(savedStoryLink);
   });
 
   // The below function detects the swipe direction and logs it to the console
