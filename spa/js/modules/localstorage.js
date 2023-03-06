@@ -25,7 +25,7 @@ function deleteStory(story) {
     localStorage.getItem("savedStories") || "[]"
   );
 
-  const storyIndex = existingStories.indexOf(story._id);
+  const storyIndex = existingStories.indexOf(story);
 
   existingStories.splice(storyIndex, 1);
 
