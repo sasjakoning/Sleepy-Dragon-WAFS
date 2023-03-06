@@ -31,7 +31,12 @@ function onRouteChanged(myHash) {
             console.log("credits");
             break;
         default:
-            console.log("default");
+            if (hash.includes("#id=")) {
+                const id = hash.substring(4);
+                routes.story(id)
+            } else {
+                console.log("default");
+            }
             break;
     }
 }

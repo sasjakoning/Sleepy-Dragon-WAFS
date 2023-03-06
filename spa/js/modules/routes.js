@@ -1,4 +1,4 @@
-import { getRandomStory, listAllStories, findStories } from "./api.js";
+import { getRandomStory, listAllStories, findStory, findSavedStories } from "./api.js";
 import { riveAnimLoad, riveAnimTitle } from "./rive.js";
 import { saveStory, deleteStory } from "./localstorage.js";
 import { closeActiveWindow, openWindow, removeDuplicateWindow, hideWindow } from "./utilities.js";
@@ -8,31 +8,17 @@ import { swipeAndRemove } from "./touchHandler.js"
 let currentStory = null;
 
 function home() {
+  closeActiveWindow();
+
   // Load the dragon title animation
   const titleCanvas = document.querySelector("#canvas-dragon-title");
   riveAnimTitle(titleCanvas);
 
-  // Close the active window
-  const activeWindow = document.querySelector(".visible.window");
-
-  activeWindow?.classList.forEach((className) => {
-    if (className.includes("slide-")) {
-      const [, , animDirection] = className.split("-");
-
-      activeWindow.classList.add(`slide-out-${animDirection}`);
-
-      activeWindow.addEventListener(
-        "animationend",
-        (event) => {
-          closeActiveWindow(activeWindow, animDirection);
-        },
-        { once: true }
-      );
-    }
-  });
 }
 
-async function story() {
+async function story(id) {
+  closeActiveWindow();
+
   const windowStory = document.querySelector(".window-story");
 
   // Open the story window
@@ -50,10 +36,20 @@ async function story() {
 
   riveAnimLoad(storyLoadingCanvas);
 
-  // Get a random story from the API
-  const storyContent = await getRandomStory();
+  if(id){
+    // get story by id
+    const allStories = await listAllStories();
+    console.log(allStories)
+    const matchingStory = findStory(allStories, id);
 
-  currentStory = storyContent;
+    currentStory = matchingStory;
+  }else {
+    // Get a random story from the API
+    const storyContent = await getRandomStory();
+  
+    currentStory = storyContent;
+    
+  }
 
   // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
   hideWindow(storyLoading)
@@ -69,7 +65,7 @@ async function story() {
     '[slot="story-success-content"]'
   );
 
-  const {story, title, author} = storyContent;
+  const {story, title, author} = currentStory;
 
   storySuccessContent.textContent = story;
   storySuccessTitle.textContent = title;
@@ -90,6 +86,7 @@ async function story() {
 }
 
 async function saved() {
+  closeActiveWindow();
   const windowSaved = document.querySelector(".window-saved");
   const windowSavedContent = document.querySelector(".saved-content");
 
@@ -104,15 +101,21 @@ async function saved() {
 
   const allApiStories = await listAllStories();
   console.log("GOT ALL STORIES", allApiStories);
-  const savedStories = await findStories(allApiStories);
+  const savedStories = await findSavedStories(allApiStories);
 
   // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
-  hideWindow(savedLoading)
+  hideWindow(savedLoading);
 
-  const savedStory = document.createElement("saved-storypart");
+  // const savedStory = document.createElement("saved-storypart");
 
   savedStories.forEach((story) => {
+    const savedStoryLink = document.createElement("a");
+    savedStoryLink.href = `#id=${story._id}`;
+
+    console.log(savedStoryLink)
+
     const savedStoryPart = document.createElement("saved-storypart");
+    savedStoryLink.appendChild(savedStoryPart);
 
     const savedStoryTitle = savedStoryPart.shadowRoot.querySelector(
       '[slot="saved-storypart-title"]'
@@ -126,7 +129,7 @@ async function saved() {
 
     savedStoryPart.dataset.storyId = story._id;
 
-    windowSavedContent.appendChild(savedStoryPart);
+    windowSavedContent.appendChild(savedStoryLink);
   });
 
   // The below function detects the swipe direction and logs it to the console
