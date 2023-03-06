@@ -1,5 +1,5 @@
 import { getRandomStory, listAllStories, findStory, findSavedStories } from "./api.js";
-import { riveAnimLoad, riveAnimTitle } from "./rive.js";
+import { riveAnimLoad, riveAnimTitle, riveAnimReading } from "./rive.js";
 import { saveStory, deleteStory } from "./localstorage.js";
 import { closeActiveWindow, openWindow, removeDuplicateWindow, hideWindow } from "./utilities.js";
 import { returnToHome } from "./navigation.js"
@@ -72,6 +72,12 @@ async function story(id) {
   storySuccessAuthor.textContent = author;
 
   windowStory.appendChild(storySuccess);
+
+  const dragonReadingCanvas = storySuccess.shadowRoot.querySelector(
+    "#canvas-dragon-reading"
+  );
+
+  riveAnimReading(dragonReadingCanvas);
 
   const saveBtn = storySuccess.shadowRoot.querySelector(".save-toggle");
 
