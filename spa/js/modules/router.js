@@ -26,16 +26,18 @@ function onRouteChanged(myHash) {
             break;
         case "#settings":
             console.log("settings");
+            routes.error()
             break;
         case "#credits":
             console.log("credits");
+            routes.error()
             break;
         default:
             if (hash.includes("#id=")) {
                 const id = hash.substring(4);
                 routes.story(id)
             } else {
-                console.log("default");
+                routes.error()
             }
             break;
     }

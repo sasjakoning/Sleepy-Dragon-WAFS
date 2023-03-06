@@ -94,6 +94,11 @@ main::before {
 	background-color: gray;
 }
 
+a {
+	text-decoration: none;
+	color: var(--dark);
+}
+
 /* -------------------------------------------- */
 /*                Button styling                */
 /* -------------------------------------------- */
@@ -227,6 +232,18 @@ main:has(.btn > input[type="checkbox"]:checked) .window-story {
 	background: var(--secondary);
 }
 
+.window-error {
+	background: var(--tertiary);
+}
+
+.window-error > .btn {
+	background: var(--light);
+	color: var(--dark);
+	width: 100%;
+	display: block;
+	margin-top: 1rem;
+}
+
 .saved-content {
 	margin-top: 2rem;
 	display: flex;
@@ -246,14 +263,14 @@ story-loading {
 	transform: translate(-50%, -50%);
 }
 
-saved-storypart {
+a:has(saved-storypart) {
 	border-radius: 1rem;
     background: linear-gradient(90deg, rgb(197, 197, 214), rgb(154, 154, 168));
 
 	position: relative;
 }
 
-saved-storypart::before {
+a:has(saved-storypart)::before {
 	content: '';
 	position: absolute;
 	width: 2rem;
