@@ -33,7 +33,7 @@ function swipeAndRemove(element, parent) {
       setTimeout(() => {
         // Remove the element from the DOM after the animation is complete
         element.addEventListener("animationend", () => {
-          parent.remove();
+          parent.parentNode.remove();
           // remove item from localstorage
           deleteStory(parent.dataset.storyId);
         });
