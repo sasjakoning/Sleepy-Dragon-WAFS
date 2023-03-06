@@ -1,3 +1,4 @@
+import { deleteStory } from "./localstorage.js";
 
 function swipeAndRemove(element, parent) {
   let isDragging = false;
@@ -24,6 +25,8 @@ function swipeAndRemove(element, parent) {
     element.classList.remove("slide-back");
   }
 
+  console.log(parent.dataset.storyId)
+
   function dragEnd(event) {
     if (currentTranslate < threshold) {
       element.classList.add("slide-out");
@@ -31,6 +34,8 @@ function swipeAndRemove(element, parent) {
         // Remove the element from the DOM after the animation is complete
         element.addEventListener("animationend", () => {
           parent.remove();
+          // remove item from localstorage
+          deleteStory(parent.dataset.storyId);
         });
       }, 500);
     } else {
@@ -44,7 +49,6 @@ function swipeAndRemove(element, parent) {
       cancelAnimationFrame(animationFrameId);
     }
   }
-
 
   function drag(event) {
     if (isDragging) {
@@ -65,7 +69,6 @@ function swipeAndRemove(element, parent) {
     }
   }
 }
-
 // ChatGPT and Github Copilot helped me with this.
 
 export { swipeAndRemove };

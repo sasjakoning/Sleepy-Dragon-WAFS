@@ -83,7 +83,7 @@ async function story() {
     if (saveBtn.checked) {
       saveStory(currentStory);
     }else if (!saveBtn.checked) {
-      deleteStory(currentStory);
+      deleteStory(currentStory._id);
     }
   });
 
@@ -124,6 +124,8 @@ async function saved() {
     );
     savedStoryAuthor.textContent = story.author;
 
+    savedStoryPart.dataset.storyId = story._id;
+
     windowSavedContent.appendChild(savedStoryPart);
   });
 
@@ -131,9 +133,10 @@ async function saved() {
 
   const touchArea = document.querySelectorAll("saved-storypart");
 
+  
   touchArea.forEach((element) => {
     const slideElement = element.shadowRoot.querySelector(".window-saved-storypart");
-    swipeAndRemove(slideElement, element)
+    swipeAndRemove(slideElement, element);
   });
     
 
