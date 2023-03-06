@@ -1,4 +1,4 @@
-import { getRandomStory, listAllStories, findStories } from "./api.js";
+import { getRandomStory, listAllStories, findStory, findSavedStories } from "./api.js";
 import { riveAnimLoad, riveAnimTitle } from "./rive.js";
 import { saveStory, deleteStory } from "./localstorage.js";
 import { closeActiveWindow, openWindow, removeDuplicateWindow, hideWindow } from "./utilities.js";
@@ -32,7 +32,9 @@ function home() {
   });
 }
 
-async function story() {
+async function story(id) {
+  console.log(id)
+
   const windowStory = document.querySelector(".window-story");
 
   // Open the story window
@@ -50,10 +52,20 @@ async function story() {
 
   riveAnimLoad(storyLoadingCanvas);
 
-  // Get a random story from the API
-  const storyContent = await getRandomStory();
+  if(id){
+    // get story by id
+    const allStories = await listAllStories();
+    console.log(allStories)
+    const matchingStory = findStory(allStories, id);
 
-  currentStory = storyContent;
+    currentStory = matchingStory;
+  }else {
+    // Get a random story from the API
+    const storyContent = await getRandomStory();
+  
+    currentStory = storyContent;
+    
+  }
 
   // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
   hideWindow(storyLoading)
@@ -69,7 +81,7 @@ async function story() {
     '[slot="story-success-content"]'
   );
 
-  const {story, title, author} = storyContent;
+  const {story, title, author} = currentStory;
 
   storySuccessContent.textContent = story;
   storySuccessTitle.textContent = title;
@@ -104,7 +116,7 @@ async function saved() {
 
   const allApiStories = await listAllStories();
   console.log("GOT ALL STORIES", allApiStories);
-  const savedStories = await findStories(allApiStories);
+  const savedStories = await findSavedStories(allApiStories);
 
   // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
   hideWindow(savedLoading)

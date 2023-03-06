@@ -5,7 +5,7 @@ async function listAllStories () {
     return data;
 }
 
-function findStories(allStories) {
+function findSavedStories(allStories) {
     console.log('finding saved stories');
     const existingStories = JSON.parse(localStorage.getItem("savedStories"));
     
@@ -16,6 +16,17 @@ function findStories(allStories) {
         return matchingStories;
     }
 
+}
+
+function findStory(allStories, id) {
+    console.log('finding story');
+    const matchingStory = allStories.find(story => story._id === id);
+
+    if(matchingStory) {
+        return matchingStory;
+    } else {
+        console.log("No story found");
+    }
 }
 
 
@@ -37,4 +48,4 @@ async function getRandomStory() {
 }
 
 
-export { getRandomStory,  listAllStories , findStories};
+export { getRandomStory,  listAllStories, findStory , findSavedStories};
