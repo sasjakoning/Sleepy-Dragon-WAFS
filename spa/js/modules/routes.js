@@ -145,8 +145,18 @@ async function saved() {
 
 }
 
+async function error() {
+  closeActiveWindow();
+
+  const windowError = document.querySelector(".window-error");
+  const storyLoadingCanvas = document.querySelector("#canvas-dragon-load");
+  riveAnimLoad(storyLoadingCanvas);
+  openWindow(windowError, "right");
+}
+
 export default {
   home,
   story,
   saved,
+  error,
 };
