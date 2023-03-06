@@ -63,10 +63,10 @@
     margin-bottom: 1.5rem;
 }
 
-.window-success > .anim-container {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 50%;
+.window-success > .animContainer {
+    width: clamp(10rem, 85%, 21rem);
+    position: absolute;
+    bottom: -4rem;
+    right: -5rem;
     aspect-ratio: 1/1;
 }

@@ -36,4 +36,22 @@ function riveAnimTitle(canvas) {
   });
 }
 
-export { riveAnimLoad, riveAnimTitle };
+function riveAnimReading(canvas) {
+
+  console.log(canvas)
+
+  const canvasDragonReadingRive = new rive.Rive({
+    src: "./images/sleepy_dragon.riv",
+    canvas: canvas,
+    autoplay: true,
+    stateMachines: "dragon-reading",
+    artboard: "dragon-reading",
+    fit: rive.Fit.cover,
+    onLoad: (_) => {
+      canvasDragonReadingRive.resizeDrawingSurfaceToCanvas();
+  
+    },
+  });
+}
+
+export { riveAnimLoad, riveAnimTitle, riveAnimReading };
