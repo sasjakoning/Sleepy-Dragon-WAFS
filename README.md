@@ -27,6 +27,7 @@
   - [📱 Prototype v1 📱](#-prototype-v1-)
   - [🎨 Rive 🎨](#-rive-)
   - [📱 Prototype v2 📱](#-prototype-v2-)
+  - [📱 Prototype v3 📱](#-prototype-v3-)
 
 
 <br>
@@ -222,3 +223,28 @@ Below is the first animation I made for the mascot. This animation was good prac
 Version 2 of the prototype is mainly focussed on refactoring the code. I switched to using hashes, routes and modules. Using modules helped me a lot when it came to the readability of the code. It was already coming close to turning into spaghetti code.
 
 <br>
+<img src="images-readme/v2.gif" width="400">
+
+<br>
+<hr>
+<br>
+
+## 📱 Prototype v3 📱
+
+Version 3 of the prototype is the final version of the prototype. I implemented the final design and continued working on perfecting the code and different states of the UI stack. 
+
+<br>
+<img src="images-readme/v3.1.gif" width="400">
+<br>
+
+
+During work on this version I had a design critique session with a fellow student. There were a few things that needed work:
+
+- The swipe function the saved stories page is able to swipe in the wrong direction
+- The treshold for the swipe function is too high and needs to be lowered.
+- When the user swipes below the treshold, the story should return to its original position. This however did not yet work.
+- When there are more saved stories on the page than the screen can show, the user should be able to scroll down to see the rest of the stories.
+- "Start reading" Should be renamed to "Read random story" for clearer understanding.
+- The dragon animation on the story screen may be a bit too distracting and large.
+
+Each of these points were turned into Github issues and I worked on them one by one.
