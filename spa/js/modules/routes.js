@@ -100,7 +100,9 @@ async function saved() {
   openWindow(windowSaved, "bottom");
 
   // Create a new instance of the "story-loading" element and add it to the window
+
   removeDuplicateWindow("saved-loading");
+  removeDuplicateWindow("saved-empty");
 
   const savedLoading = document.createElement("saved-loading");
   windowSavedContent.appendChild(savedLoading);
@@ -112,9 +114,13 @@ async function saved() {
   // when fetch succeeds, hide the "story-loading" element and add the "story-success" element
   hideWindow(savedLoading);
 
-  // const savedStory = document.createElement("saved-storypart");
+  if(savedStories.length === 0){
+    const savedEmpty = document.createElement("saved-empty");
+    windowSavedContent.appendChild(savedEmpty);
+    return;
+  }
 
-  savedStories.forEach((story) => {
+  savedStories.forEach((story, i) => {
     const savedStoryLink = document.createElement("a");
     savedStoryLink.href = `#id=${story._id}`;
 
@@ -122,6 +128,11 @@ async function saved() {
 
     const savedStoryPart = document.createElement("saved-storypart");
     savedStoryLink.appendChild(savedStoryPart);
+
+    if(i === 0){
+      const slideElement = savedStoryPart.shadowRoot.querySelector(".window-saved-storypart");
+      slideElement.classList.add("slide-hint");
+    }
 
     const savedStoryTitle = savedStoryPart.shadowRoot.querySelector(
       '[slot="saved-storypart-title"]'
@@ -155,8 +166,6 @@ async function error() {
   closeActiveWindow();
 
   const windowError = document.querySelector(".window-error");
-  const storyLoadingCanvas = document.querySelector("#canvas-dragon-load");
-  riveAnimLoad(storyLoadingCanvas);
   openWindow(windowError, "right");
 }
 

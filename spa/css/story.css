@@ -69,4 +69,5 @@
     bottom: -4rem;
     right: -5rem;
     aspect-ratio: 1/1;
+    pointer-events: none;
 }

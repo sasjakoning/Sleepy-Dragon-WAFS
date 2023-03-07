@@ -30,8 +30,8 @@ function closeActiveWindow() {
                     const loader = activeWindow.querySelector("saved-loading");
                     const content = activeWindow.querySelector("saved-storypart");
             
-                    loader.remove();
-                    content.remove();
+                    loader?.remove();
+                    content?.remove();
                 }
             },
             { once: true }
@@ -50,8 +50,8 @@ function openWindow(window, direction) {
 function removeDuplicateWindow(window) {
     const targetWindow = document.querySelector(`${window}`);
     console.log(targetWindow)
-    if (targetWindow && targetWindow.classList.contains("visible")) {
-      window.remove();
+    if (targetWindow && !targetWindow.classList.contains("hidden")) {
+      targetWindow.remove();
     }
 }
 
