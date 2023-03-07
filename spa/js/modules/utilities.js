@@ -68,6 +68,7 @@ function checkIfEmpty(element, window) {
         )
       ) {
         const emptyState = document.createElement(window);
+        element.classList.add("animate-in");
         element.appendChild(emptyState);
         emptyStateAdded = true; // set the flag to true
       }

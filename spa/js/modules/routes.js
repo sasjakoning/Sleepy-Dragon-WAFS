@@ -116,6 +116,7 @@ async function saved() {
 
   if(savedStories.length === 0){
     const savedEmpty = document.createElement("saved-empty");
+    savedEmpty.classList.add("animate-in");
     windowSavedContent.appendChild(savedEmpty);
     return;
   }
