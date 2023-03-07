@@ -348,3 +348,25 @@ a:has(saved-storypart)::before {
 		transform: translateY(100%);
 	}
 }
+
+.slide-remove {
+    animation: slideRemove 0.2s forwards;
+    opacity: 1;
+}
+
+@keyframes slideRemove {
+    to {
+        opacity: 0;
+    }
+}
+
+.animate-in {
+	animation: animateIn 0.2s forwards;
+	opacity: 0;
+}
+
+@keyframes animateIn {
+	to {
+		opacity: 1;
+	}
+}
