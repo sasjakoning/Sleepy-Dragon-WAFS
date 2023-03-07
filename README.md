@@ -224,6 +224,9 @@ This is what version 2 of the prototype looks like:
 <img src="images-readme/v2.gif" width="200">
 
 <br>
+<img src="images-readme/v2.gif" width="400">
+
+<br>
 <hr>
 <br>
 
@@ -249,12 +252,6 @@ Below is the final design of the app. I'm quite happy with how it turned out. I 
 
 <img src="images-readme/designs-final.jpg" width="600">
 
-
-## 📱 Prototype v3 📱
-
-Version 3 was all about implementing the finished design into the app.
-
-
 ## Refactoring
 
 On friday 24-02-2023 I had a meeting with my coach. During this meeting we discussed the app and the progress I had made so far. He gave me some good feedback and I decided to refactor the code a bit. The main point he gave me during this feedback sessions is to pay attention to the way my code was structured. At that point my code worked like "waterfall" code. which meant I had a function that that did something in a separate module, that then fired another function that did something in another module and so on. This made the code hard to follow. 
@@ -262,3 +259,27 @@ On friday 24-02-2023 I had a meeting with my coach. During this meeting we discu
 <br>
 
 To improve readability of my code I started refactoring my code to not use functions within functions and avoid jumping from one module to another without returning to the main Javascript file first. 
+
+<br>
+<hr>
+<br>
+
+## 📱 Prototype v3 📱
+
+Version 3 of the prototype is the final version of the prototype. I implemented the final design and continued working on perfecting the code and different states of the UI stack. 
+
+<br>
+<img src="images-readme/v3.1.gif" width="400">
+<br>
+
+
+During work on this version I had a design critique session with a fellow student. There were a few things that needed work:
+
+- The swipe function the saved stories page is able to swipe in the wrong direction
+- The treshold for the swipe function is too high and needs to be lowered.
+- When the user swipes below the treshold, the story should return to its original position. This however did not yet work.
+- When there are more saved stories on the page than the screen can show, the user should be able to scroll down to see the rest of the stories.
+- "Start reading" Should be renamed to "Read random story" for clearer understanding.
+- The dragon animation on the story screen may be a bit too distracting and large.
+
+Each of these points were turned into Github issues and I worked on them one by one.

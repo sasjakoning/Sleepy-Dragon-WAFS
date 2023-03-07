@@ -31,8 +31,9 @@ function swipeAndRemove(element, parent) {
     if (currentTranslate < threshold) {
       element.classList.add("slide-out");
       setTimeout(() => {
+        parent.parentNode.classList.add("slide-remove");
         // Remove the element from the DOM after the animation is complete
-        element.addEventListener("animationend", () => {
+        parent.parentNode.addEventListener("animationend", () => {
           parent.parentNode.remove();
           // remove item from localstorage
           deleteStory(parent.dataset.storyId);

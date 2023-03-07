@@ -1,7 +1,7 @@
 import { getRandomStory, listAllStories, findStory, findSavedStories } from "./api.js";
 import { riveAnimLoad, riveAnimTitle, riveAnimReading } from "./rive.js";
 import { saveStory, deleteStory } from "./localstorage.js";
-import { closeActiveWindow, openWindow, removeDuplicateWindow, hideWindow } from "./utilities.js";
+import { closeActiveWindow, openWindow, removeDuplicateWindow, hideWindow, checkIfEmpty } from "./utilities.js";
 import { returnToHome } from "./navigation.js"
 import { swipeAndRemove } from "./touchHandler.js"
 
@@ -116,6 +116,7 @@ async function saved() {
 
   if(savedStories.length === 0){
     const savedEmpty = document.createElement("saved-empty");
+    savedEmpty.classList.add("animate-in");
     windowSavedContent.appendChild(savedEmpty);
     return;
   }
@@ -132,6 +133,9 @@ async function saved() {
     if(i === 0){
       const slideElement = savedStoryPart.shadowRoot.querySelector(".window-saved-storypart");
       slideElement.classList.add("slide-hint");
+      slideElement.addEventListener("animationend", () => {
+        slideElement.classList.remove("slide-hint");
+      })
     }
 
     const savedStoryTitle = savedStoryPart.shadowRoot.querySelector(
@@ -158,8 +162,9 @@ async function saved() {
     const slideElement = element.shadowRoot.querySelector(".window-saved-storypart");
     swipeAndRemove(slideElement, element);
   });
-    
 
+  checkIfEmpty(windowSavedContent, "saved-empty");
+  
 }
 
 async function error() {
