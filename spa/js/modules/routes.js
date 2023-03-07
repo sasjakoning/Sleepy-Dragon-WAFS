@@ -80,12 +80,24 @@ async function story(id) {
   riveAnimReading(dragonReadingCanvas);
 
   const saveBtn = storySuccess.shadowRoot.querySelector(".save-toggle");
+  const saveNotif = storySuccess.shadowRoot.querySelector(".story-saved-notif");
+  const saveNotifContent = saveNotif.querySelector("p");
 
   saveBtn.addEventListener("change", () => {
     if (saveBtn.checked) {
       saveStory(currentStory);
+      saveNotifContent.textContent = "Story saved!";
+      saveNotif.classList.add("saved-notif-slide-in");
+      setTimeout(() => {
+        saveNotif.classList.remove("saved-notif-slide-in")
+      }, 2000);
     }else if (!saveBtn.checked) {
       deleteStory(currentStory._id);
+      saveNotifContent.textContent = "Story unsaved!";
+      saveNotif.classList.add("saved-notif-slide-in");
+      setTimeout(() => {
+        saveNotif.classList.remove("saved-notif-slide-in")
+      }, 2000);
     }
   });
 
