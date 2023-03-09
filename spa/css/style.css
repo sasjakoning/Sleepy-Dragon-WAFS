@@ -224,6 +224,30 @@ main:has(.btn > input[type="checkbox"]:checked) .window-story {
 	display: none;
 }
 
+.window-nojs {
+	animation: fade-in 1s ease-in-out;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+	height: 100dvh;
+}
+
+.window-nojs > img {
+    width: 80%;
+}
+
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+ 
+
 .window-story {
 	background: var(--primary);
 }
@@ -269,7 +293,7 @@ story-loading {
 
 a:has(saved-storypart) {
 	border-radius: 1rem;
-    background: linear-gradient(90deg, rgb(197, 197, 214), rgb(154, 154, 168));
+    background: linear-gradient(90deg, rgb(214, 214, 231), rgb(192, 192, 207));
 
 	position: relative;
 }
