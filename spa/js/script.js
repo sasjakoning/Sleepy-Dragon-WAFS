@@ -4,8 +4,6 @@ import { onRouteChanged } from "./modules/router.js";
 
 const windowNoJS = document.querySelector(".window-nojs");
 
-// Add "hidden" class to windowNoJS to hide it if JavaScript is enabled
-windowNoJS.classList.add("hidden");
 
 // Array of template file paths to load. These are the files that define the custom elements.
 const templates = [

@@ -49,14 +49,14 @@
 
 /* --------------------- Empty state -------------------- */
 
-.window-saved-empty {
+.window-saved-empty, .window-saved-error {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
 }
 
-.window-saved-empty > img {
+.window-saved-empty > img, .window-saved-error > img {
     width: 80%;
 }
 
@@ -70,7 +70,7 @@
     width: 100%;
     height: 6rem;
     border-radius: 1rem;
-    background: rgb(210,210,227);
+    background: var(--light);
 
     padding: 1rem;
 
