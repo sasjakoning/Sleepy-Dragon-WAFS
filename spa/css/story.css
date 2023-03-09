@@ -60,7 +60,7 @@
 
 @keyframes saved-notif-slide-in {
     100% {
-        transform: translateY(50%);
+        transform: translateY(100%);
     }
 }
 

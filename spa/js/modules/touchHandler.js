@@ -1,4 +1,4 @@
-import { deleteStory } from "./localstorage.js";
+import local from './localstorage.js';
 
 function swipeAndRemove(element, parent) {
   let isDragging = false;
@@ -7,42 +7,40 @@ function swipeAndRemove(element, parent) {
   const threshold = -150;
   let animationFrameId;
 
-  element.addEventListener("mousedown", dragStart);
-  element.addEventListener("touchstart", dragStart);
-  element.addEventListener("mouseup", dragEnd);
-  element.addEventListener("touchend", dragEnd);
-  element.addEventListener("mousemove", drag);
-  element.addEventListener("touchmove", drag);
+  element.addEventListener('mousedown', dragStart);
+  element.addEventListener('touchstart', dragStart);
+  element.addEventListener('mouseup', dragEnd);
+  element.addEventListener('touchend', dragEnd);
+  element.addEventListener('mousemove', drag);
+  element.addEventListener('touchmove', drag);
 
   function dragStart(event) {
-    if (event.type === "touchstart") {
+    if (event.type === 'touchstart') {
       startPosition = event.touches[0].clientX;
     } else {
       startPosition = event.clientX;
     }
     isDragging = true;
-    element.classList.remove("slide-out");
-    element.classList.remove("slide-back");
+    element.classList.remove('slide-out');
+    element.classList.remove('slide-back');
   }
-
-  console.log(parent.dataset.storyId)
 
   function dragEnd(event) {
     if (currentTranslate < threshold) {
-      element.classList.add("slide-out");
+      element.classList.add('slide-out');
       setTimeout(() => {
-        parent.parentNode.classList.add("slide-remove");
+        parent.parentNode.classList.add('slide-remove');
         // Remove the element from the DOM after the animation is complete
-        parent.parentNode.addEventListener("animationend", () => {
+        parent.parentNode.addEventListener('animationend', () => {
           parent.parentNode.remove();
           // remove item from localstorage
-          deleteStory(parent.dataset.storyId);
+          local.deleteStory(parent.dataset.storyId);
         });
       }, 500);
     } else {
-      element.classList.add("slide-back");
-      element.addEventListener("animationend", () => {
-        element.style.setProperty("--xPos", 0 + "px");
+      element.classList.add('slide-back');
+      element.addEventListener('animationend', () => {
+        element.style.setProperty('--xPos', 0 + 'px');
       });
       isDragging = false;
       startPosition = null;
@@ -54,9 +52,8 @@ function swipeAndRemove(element, parent) {
   function drag(event) {
     if (isDragging) {
       const distance = currentTranslate - startPosition;
-      console.log(currentTranslate)
       let currentPosition = null;
-      if (event.type === "touchmove") {
+      if (event.type === `touchmove`) {
         currentPosition = event.touches[0].clientX;
       } else {
         currentPosition = event.clientX;
@@ -66,12 +63,14 @@ function swipeAndRemove(element, parent) {
       startPosition = currentPosition;
 
       // Prevent the element from being dragged in the wrong direction
-      if(currentTranslate < 0){
-      element.style.setProperty("--xPos", `${currentTranslate}px`);
+      if (currentTranslate < 0) {
+        element.style.setProperty(`--xPos`, `${currentTranslate}px`);
       }
     }
   }
 }
 // ChatGPT and Github Copilot helped me with this.
 
-export { swipeAndRemove };
+export default {
+  swipeAndRemove,
+};
