@@ -3,9 +3,6 @@ import routes from "./routes.js";
 function onRouteChanged(myHash) {
 
     const hash = myHash ?? window.location.hash;
-    console.log(hash);
-
-    // console.log(allApiStories);
     
     switch(hash) {
         case '': 
