@@ -4,7 +4,7 @@ function swipeAndRemove(element, parent) {
   let isDragging = false;
   let startPosition = null;
   let currentTranslate = 0;
-  const threshold = -100;
+  const threshold = -150;
   let animationFrameId;
 
   element.addEventListener("mousedown", dragStart);
@@ -64,9 +64,11 @@ function swipeAndRemove(element, parent) {
       const diff = currentPosition - startPosition;
       currentTranslate += diff;
       startPosition = currentPosition;
-      requestAnimationFrame(() => {
-        element.style.setProperty("--xPos", `${currentTranslate}px`);
-      });
+
+      // Prevent the element from being dragged in the wrong direction
+      if(currentTranslate < 0){
+      element.style.setProperty("--xPos", `${currentTranslate}px`);
+      }
     }
   }
 }
