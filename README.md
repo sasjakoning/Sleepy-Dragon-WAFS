@@ -27,8 +27,10 @@
   - [🎨 Rive 🎨](#-rive-)
   - [📱 Prototype v2 📱](#-prototype-v2-)
   - [🎨 App design 🎨](#-app-design-)
-  - [📱 Prototype v3 📱](#-prototype-v3-)
   - [Refactoring](#refactoring)
+  - [📱 Prototype v3 📱](#-prototype-v3-)
+  - [📱 Final version 📱](#-final-version-)
+  - [📚 Final thoughts 📚](#-final-thoughts-)
 
 
 <br>
@@ -298,3 +300,16 @@ The final version of the app is the version that I will be presenting. I have im
 ## 📚 Final thoughts 📚
 
 I'm quite happy with the result of this project. Being able to create a web app from scratch (haha) and figure out the basics of Javascript frameworks helped me get a better view on how web development works. I'm also happy with the design of the app. I think it's a good balance between playful and easy to handle. There are some major things I learned which include the use of web components, templates, hashes, routes and modules. I also got some more practice in implementing Rive animations.
+
+<br>
+
+There are still a couple of things I wish I could have done but couldn't because of time constraints. These include(and are also described in Issues):
+
+- Rive seems to have a reload issue that causes slight flashing at when changing hashes
+- Short loading screen at the start of the app
+- Add a small "remove" animation when dragging and holding a saved story to the left. (for example a changing color)
+- Add a "search stories" feature in which the user can find stories based on a keyword
+- When finding a random story to read, change the hash to the story id, this way the saved icon can also be enabled in case the story is already saved.
+- General Javascript refactoring
+
+Generally these are small things that I could work on in the future. I'm happy with the result of this project and I'm looking forward to the next one!
