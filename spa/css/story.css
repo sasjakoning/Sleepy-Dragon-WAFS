@@ -26,6 +26,29 @@
     background: url(../images/heart-solid.svg) no-repeat center center;
 }
 
+.story-saved-notif {
+    width: 90%;
+    padding: 1rem;
+    background: var(--secondary);
+    color: var(--white);
+    border-radius: 12px;
+    text-align: center;
+
+    position: absolute;
+    top: 0;
+    transform: translateY(-100%);
+}
+
+.saved-notif-slide-in {
+    animation: saved-notif-slide-in .2s ease-in-out forwards, saved-notif-slide-out .2s ease-in-out 1s forwards;
+}
+
+@keyframes saved-notif-slide-in {
+    100% {
+        transform: translateY(0);
+    }
+}
+
 .window-success {
     display: flex;
     flex-direction: column;
