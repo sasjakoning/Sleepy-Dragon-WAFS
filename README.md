@@ -224,9 +224,6 @@ This is what version 2 of the prototype looks like:
 <img src="images-readme/v2.gif" width="200">
 
 <br>
-<img src="images-readme/v2.gif" width="400">
-
-<br>
 <hr>
 <br>
 
@@ -283,3 +280,21 @@ During work on this version I had a design critique session with a fellow studen
 - The dragon animation on the story screen may be a bit too distracting and large.
 
 Each of these points were turned into Github issues and I worked on them one by one.
+
+
+## 📱 Final version 📱
+
+The final version of the app is the version that I will be presenting. I have implemented the majority the feedback I got from the design critique session and I have also fixed a few bugs that I found during testing.
+
+<br>
+
+### [Check out the demo video on Youtube](https://youtu.be/8K8vvHagBew)
+
+
+<br>
+<hr>
+<br>
+
+## 📚 Final thoughts 📚
+
+I'm quite happy with the result of this project. Being able to create a web app from scratch (haha) and figure out the basics of Javascript frameworks helped me get a better view on how web development works. I'm also happy with the design of the app. I think it's a good balance between playful and easy to handle. There are some major things I learned which include the use of web components, templates, hashes, routes and modules. I also got some more practice in implementing Rive animations.
