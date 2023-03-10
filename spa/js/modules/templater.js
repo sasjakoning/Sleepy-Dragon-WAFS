@@ -1,6 +1,5 @@
 // Function to define a custom element based on a template file
 async function defineTemplate(templatePath) {
-  // Fetch the template file
   const response = await fetch(templatePath);
   const html = await response.text();
 
@@ -11,9 +10,6 @@ async function defineTemplate(templatePath) {
   class CustomElement extends HTMLElement {
     constructor() {
       super();
-      //   Shadow DOM is a way to encapsulate styles and markup in a custom element.
-      // It ignores styles outside of the element and styles inside the element don't affect the rest of the page.
-      // Very cool.
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
